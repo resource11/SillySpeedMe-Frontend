@@ -37,6 +37,7 @@ $(function() {
     var credentials = wrap('credentials', form2object(this));
     ssme_api.register(credentials, callback);
     e.preventDefault();
+    console.log(JSON.stringify(credentials, null, 4));
   });
 
   $('#login').on('submit', function(e) {
@@ -47,12 +48,14 @@ $(function() {
         return;
       }
       callback(null, data);
-      // $('.token').val(data.user.token);
-
+      user.id = data.user.id;
       user.token = data.user.token;
+      $('.user-messages').text('Welcome, user #' + data.user.id);
+
       console.log(JSON.stringify(credentials, null, 4));
+      console.log(user.id);
       console.log(user.token);
-      $('.player-messages').text('Welcome, user #' + data.user.id);
+
     };
     e.preventDefault();
     ssme_api.login(credentials, cb);
