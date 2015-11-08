@@ -1,12 +1,8 @@
-'use-strict';
-
 'use strict';
 
-var game = {
+var user = {
   id: null,
-  board: [],
-  token: null,
-  over: false
+  token: null
 };
 
 //$(document).ready(...
@@ -39,7 +35,7 @@ $(function() {
 
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
-    tttapi.register(credentials, callback);
+    ssme_api.register(credentials, callback);
     e.preventDefault();
   });
 
@@ -52,12 +48,14 @@ $(function() {
       }
       callback(null, data);
       // $('.token').val(data.user.token);
-      game.token = data.user.token;
-      console.log(game.token);
+
+      user.token = data.user.token;
+      console.log(JSON.stringify(credentials, null, 4));
+      console.log(user.token);
       $('.player-messages').text('Welcome, user #' + data.user.id);
     };
     e.preventDefault();
-    tttapi.login(credentials, cb);
+    ssme_api.login(credentials, cb);
   });
 
 });
@@ -79,14 +77,14 @@ $(function() {
 //   },
 
 //   register: function(email, pw, pwconf){
-//     tttapi.register(this.makeCredentials(email, pw, pwconf), function(err, data){
+//     ssme_api.register(this.makeCredentials(email, pw, pwconf), function(err, data){
 //       if (err) { console.error(err); }
 //       console.log(data);
 //     });
 //   },
 
 //   login: function(email, pw, callback){
-//     tttapi.login(session.makeCredentials(email, pw), function(err, data){
+//     ssme_api.login(session.makeCredentials(email, pw), function(err, data){
 //       if (err) { console.error(err); }
 //       console.log(data);
 //       session.userId = data.user.id;

@@ -31,7 +31,7 @@
     </header><!-- /header -->
 
     <div class="container">
-      <div class="register">
+      <div id="register">
         <h2>Register</h2>
         <input type="email" placeholder="Your email">
         <input type="password" placeholder="Your password">
@@ -39,11 +39,13 @@
         <input type="submit">
       </div><!-- end register -->
 
-      <div class="login">
+      <div>
         <h2>Login</h2>
-        <input type="email" placeholder="Your email">
-        <input type="password" placeholder="Your password">
-        <input type="submit">
+        <form id="login">
+          <input name="email" type="text" placeholder="email">
+          <input name="password" type="password" placeholder="password">
+          <input name="login" type="submit" value="Login">
+        </form>
       </div><!-- end login -->
 
       <div class="messages-container">
@@ -84,6 +86,16 @@
         </div>
       </div><!-- end post-bike -->
 
+       <!-- functionality tester window below -->
+
+      <div class="test-data-stuff">
+        <h2>API functionality testing</h2>
+          <br>
+          <label for="result">Result</label>
+          <textarea id="result"></textarea>
+      </div>
+
+
     </div> <!-- /container -->
   </div>
   <!-- end wrapper -->
@@ -93,7 +105,9 @@
 
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script src="assets/scripts/ssme_app.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="assets/scripts/ssme_api.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>
+
   <!--
   <script src="assets/js/user_session.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/js/game_button_handlers.js" type="text/javascript" defer charset="utf-8"></script>
