@@ -38,13 +38,14 @@ var ssme_api = {
   //Authenticated api actions
 
   // we don't need to authenticate to show bikes, yes?
-  listBikes: function (token, callback) {
+  //listBikes: function (token, callback)
+  listBikes: function (callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/bikes',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
+      // headers: {
+      //   Authorization: 'Token token=' + token
+      // },
       dataType: 'json'
       }, callback);
   },
