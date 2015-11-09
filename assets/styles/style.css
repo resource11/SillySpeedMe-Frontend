@@ -11,6 +11,36 @@
   font-weight: 300;
 }
 
+h1 {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.75em;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 1.25em;
+  font-weight: 900;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: 900;
+}
+
 /*NAVIGATION*/
 header{
   background-color: #eeeeee;
@@ -93,12 +123,21 @@ input[type="submit"] {
   color:white;
 }
 
-.register, .login, .user-messages {
+#register, #login, .user-messages, .new-bike-posting {
   width: 200px;
+  height: 200px;
   overflow: auto;
   background-color: #eee;
   border: 1px solid black;
 }
+
+/*.new-bike-posting {
+  background-color: #ddd;
+  float: left;
+  width: 200px;
+  overflow: auto;
+  border: 1px solid black;
+}*/
 
 .container{
   max-width: 80%;
@@ -120,6 +159,7 @@ input[type="submit"] {
   background-color: #eee;
   padding: 10px;
   width: 200px;
+  height: 200px;
   overflow: auto;
   float: left;
   border: 1px solid black;
@@ -133,11 +173,5 @@ input[type="submit"] {
 .new-post-form {
   float: left;
 }
-.new-bike-posting {
-  background-color: #ddd;
-  float: left;
-  width: 200px;
-  overflow: auto;
-  border: 1px solid black;
-}
+
 

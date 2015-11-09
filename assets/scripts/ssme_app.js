@@ -28,17 +28,16 @@ $(function() {
   }); // end of logout click handler
 
 
-  // get DOM element for ul with id attribute 'bikes'
-  var $bikeList = $('#bikes');
-
-  // grab the list of bikes from Rails
-  var bikes_url = 'http://localhost:3000/bikes';
-
-  // begin click handler
-  $('#bikes_button').on('click', function(event) {
 
 
-    // ssme_api.listBikes(callback);
+
+  // after page loads, populate all bikes for sale
+  var $bikeList = $('#all-bikes');
+    var bikes_url = ssme_api.url +'/bikes'; // grab the list of bikes from Rails
+  // var bikes_url = 'http://localhost:3000/bikes'; // grab the list of bikes from Rails
+
+  // begin click handler, disabled for now
+  // $('#bikes_button').on('click', function(event) {
 
     // the AJAX request to return a responsePromise
     var responsePromise = $.ajax({
@@ -49,35 +48,19 @@ $(function() {
 
     // begin .done() method handler
 
-    // the http response handler, which will pass in
-    // the bikes.json file formatted into a string
+    // pass in the bikes.json file formatted into a string
     var bikesResponseHandler = function(data) {
-
-      // console log the stringified JSON file
-      // returned from the AJAX request
-      console.log('data is ', data.bikes[0].title + data.bikes[0].description + data.bikes.all);
-
-      // take the stringified JSON file and
-      // convert it to a JS object named 'bikes'
-      // var bikes = JSON.parse(data);
 
       // grab bikes from Rails
       var bikes = data.bikes;
       console.log('bikes are ', bikes);
-      console.log('bikeData 1 is ', bikes.title);
-      $('.bike-posts').text('The list of bikes are ' + data.bikes[0].title);
+      console.log('bikeData 1 is ', bikes[0].id);
 
       // iterate through the JS array of bikes and
-      // append each bike to an individual li in
-      // the ul with the id attribute 'bikes'
-      // using the title property value for each
-      // bike object in the bikes array
-
-      // so the 'bike' parameter is a reminder that
-      // the argument passed in is an element in the
-      // bikes array
+      // append each bike item to a block of html
       bikes.forEach(function(bike){
-        $bikeList.append('<li>' + bike.title + '</li>');
+        $bikeList.append('<div class="bike-posts"> <h3>' + bike.name + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p></div>');
+        console.log(bike.name);
       });
 
     };
@@ -85,8 +68,6 @@ $(function() {
 
     // the requestPromise .done() method
     responsePromise.done(bikesResponseHandler);
-
-
 
     // the requestPromise .fail() method
     responsePromise.fail(function(data){
@@ -96,8 +77,65 @@ $(function() {
     });
 
 
-  });
-  // end click handler
+  // });
+  // end disabled click handler
+
+
+  // begin load user's bikes
+  // if user logged in, load bikes created by that user
+
+  // var $userBikeList = $('#user-bikes');
+  // var usrBikes_url = ssme_api.url +'/bikes/1'; // grab the list of bikes from Rails
+
+  // // begin click handler, disabled for now
+  // // $('#bikes_button').on('click', function(event) {
+
+  //   // the AJAX request to return a responsePromise
+  //   var responsePromise = $.ajax({
+  //     method: 'GET',
+  //     url: usrBikes_url,
+  //     dataType: 'json'
+  //   });
+
+  //   // begin .done() method handler
+
+  //   // pass in the bikes.json file formatted into a string
+  //   var bikesResponseHandler = function(data) {
+
+  //     // grab bikes from Rails
+  //     var usrBikes = data.bikes;
+  //     console.log('bikes are ', bikes);
+  //     console.log('bikeData 1 is ', bikes.id);
+
+  //     // iterate through the JS array of bikes and
+  //     // append each bike item to a block of html
+  //     bikes.forEach(function(bike){
+  //       $bikeList.append('<div class="bike-posts"> <h3>' + bike.name + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p></div>');
+  //       console.log(bike.name);
+  //     });
+
+  //   };
+  //   // end .done() method handler
+
+  //   // the requestPromise .done() method
+  //   responsePromise.done(bikesResponseHandler);
+
+  //   // the requestPromise .fail() method
+  //   responsePromise.fail(function(data){
+  //         var errorMsg = 'Error: Accessing the URL' + bikes_url;
+  //         alert(errorMsg);
+  //         console.log(errorMsg);
+  //   });
+
+
+  // // });
+  // // end disabled click handler
+
+  // // end load user's bikes
+
+
+
 
 
 });
+// end doc ready function

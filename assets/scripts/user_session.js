@@ -75,6 +75,31 @@ var loginCb = function (error, data) {
   // update current_user status
   data.user.current_user = true;
   // changeLogin(data);
+
+  // send a ajax request to /bikes
+  // send the session.token
+  $.ajax({
+      method: 'GET',
+      // TODO: Replace hardcoded URL
+      url: 'http://localhost:3000' + '/bikes',
+      headers: {
+          Authorization: 'Token token=' + session.token
+        },
+      dataType: 'json'
+      }).done(function(bikes_data){
+        console.log("My Bikes are " + bikes_data);
+
+        var $userBikeList = $('#user-bikes');
+
+        var bikes = bikes_data.bikes;
+        console.log('bikes are ', bikes);
+        console.log('bikeData 1 is ', bikes[0].id);
+        bikes.forEach(function(bike){
+        $userBikeList.append('<div class="bike-posts"> <h3>' + bike.name + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p></div>');
+        console.log(bike.name);
+      });
+      });
+
   console.log(JSON.stringify(data, null, 4));
 }; // end of login callback;
 
