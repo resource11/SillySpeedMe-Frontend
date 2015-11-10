@@ -73,8 +73,7 @@ var loginCb = function (error, data) {
   console.log(session.token);
 
   // update current_user status
-  data.user.current_user = true;
-  // changeLogin(data);
+  // data.user.current_user = true;
 
   // send a ajax request to /bikes
   // send the session.token
@@ -90,18 +89,16 @@ var loginCb = function (error, data) {
         console.log("My Bikes are " + bikes_data);
 
         var $userBikeList = $('#user-bikes');
-
         var bikes = bikes_data.bikes;
 
         bikes.forEach(function(bike){
         $userBikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
 
-        // console.log for testing
+
+      });
+               // console.log for testing
         console.log('bikes are ', bikes);
-        console.log('bikeData 1 is ', bikes[0].id);
-        console.log(bike.title);
-      });
-      });
+    });
 
   console.log(JSON.stringify(data, null, 4));
 }; // end of login callback;
@@ -145,3 +142,24 @@ var createBikeCb = function (error, data) {
 
 
 // end of createBike submit handler
+
+
+
+
+// var bike = {
+//   bikeId: null,
+//   title: "",
+//   description: "",
+
+//   createGame: function(cb){
+//     ssme_api.createBike(session.token, createBikeCb);, function(err, data){
+//       if (err) { console.error(err); }
+//       console.log(data);
+//       game.board = data.game.cells;
+//       game.gameId = data.game.id;
+//       game.gameOver = data.game.over;
+//       if(cb) {cb();}
+//     });
+//   },
+
+

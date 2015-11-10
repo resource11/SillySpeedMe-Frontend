@@ -57,10 +57,22 @@ var ssme_api = {
       headers: {
         Authorization: 'Token token=' + token
       },
-      contentType: 'application/json; charset=utf-8',
+      contentType: 'application/json',
       data: JSON.stringify({}),
       dataType: 'json',
     }, callback);
+  },
+
+    createGame: function(cb){
+
+    tttapi.createGame(session.token, function(err, data){
+      if (err) { console.error(err); }
+      console.log(data);
+      game.board = data.game.cells;
+      game.gameId = data.game.id;
+      game.gameOver = data.game.over;
+      if(cb) {cb();}
+    });
   },
 
   showBike: function (id, token, callback) {

@@ -29,8 +29,16 @@ $(function() {
 
 
   // if logged in, create a new bike
-  $('#create-bike').on('submit', function(e) {
+  $('#bike').on('submit', function(e) {
+    var bike = wrap('bike', form2object(this));
+
+    // test to see if the session.token is recognized
     console.log(session.token);
+
+    // test to see if bike was created from wrap function
+    console.log(bike);
+
+    // do the createBike function
     ssme_api.createBike(session.token, createBikeCb);
     e.preventDefault();
   });
@@ -64,7 +72,7 @@ $(function() {
     // append each bike item to a block of html
     bikes.forEach(function(bike){
       $bikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
-      console.log(bike.title);
+      // console.log(bike.title);
     });
 
     };
