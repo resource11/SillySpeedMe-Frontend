@@ -92,11 +92,14 @@ var loginCb = function (error, data) {
         var $userBikeList = $('#user-bikes');
 
         var bikes = bikes_data.bikes;
+
+        bikes.forEach(function(bike){
+        $userBikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
+
+        // console.log for testing
         console.log('bikes are ', bikes);
         console.log('bikeData 1 is ', bikes[0].id);
-        bikes.forEach(function(bike){
-        $userBikeList.append('<div class="bike-posts"> <h3>' + bike.name + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p></div>');
-        console.log(bike.name);
+        console.log(bike.title);
       });
       });
 
@@ -115,3 +118,30 @@ var logoutCb = function (error){
   console.log(JSON.stringify(data, null, 4));
   console.log("Logged out");
 };
+
+
+// createBike callback
+var createBikeCb = function (error, data) {
+  if (error) {
+    console.error(error);
+    console.log('status: ' + error.status + ', error: ' +error.error);
+    $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
+    return;
+  }
+
+  var $bikeList = $('#all-bikes');
+  // var bikes_url = ssme_api.url +'/bikes';
+  // var token = session.token;
+
+  var bike = {
+    bikeId: null,
+    token: null,
+
+  };
+
+  bike.bikeId = data.bikes.id;
+  console.log('My new bike is ', bike.bikeId);
+};
+
+
+// end of createBike submit handler

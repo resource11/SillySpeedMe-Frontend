@@ -66,7 +66,7 @@
 
       <div class="profile">
         <h2>[profile name]'s bike postings</h2>
-        <div class="bike-posts">
+        <div>
           <ul id="user-bikes">
           </ul>
         </div>
@@ -75,16 +75,20 @@
         </div>
       </div><!-- end profile -->
 
-      <div class="post-bike">
+      <div>
         <h2>Post a bike</h2>
         <div class="new-post-form">
-            <input type="bike-title" placeholder="title of your post">
-            <input type="description" placeholder="Posting description">
-            <input type="submit">
+            <form id="create-bike"><input type="title" placeholder="title of your post">
+                        <input type="description" placeholder="Posting description">
+                        <input type="submit">
+                        </form>
+           <!--  <button id='create_bike'>List a bike</button> -->
           </div>
         <div class="new-bike-posting">
           <h4>your new posting</h4>
           <div class="posting-display">
+          <ul class="new-bike">
+          </ul>
 
           </div>
 
@@ -111,7 +115,7 @@
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="assets/scripts/ssme_api.js" type="text/javascript" defer charset="utf-8"></script>
-  <script src="assets/scripts/user_session.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="assets/scripts/callbacks.js" type="text/javascript" defer charset="utf-8"></script>
     <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>
 
   <!--
