@@ -118,48 +118,28 @@ var logoutCb = function (error){
 
 
 // createBike callback
-var createBikeCb = function (error, data) {
+var createBikeCb = function (error, bike) {
   if (error) {
     console.error(error);
     console.log('status: ' + error.status + ', error: ' +error.error);
     $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
     return;
   }
+  console.log('data is ' + bike);
 
-  var $bikeList = $('#all-bikes');
-  // var bikes_url = ssme_api.url +'/bikes';
-  // var token = session.token;
 
-  var bike = {
-    bikeId: null,
-    token: null,
+  var $newBike = $('#new-bike');
+    var bikes = bike.title;
+    $newBike.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
 
-  };
+           // console.log for testing
+    console.log('bikes are ', bikes);
 
-  bike.bikeId = data.bikes.id;
+  bike.bikeId = bike.title;
   console.log('My new bike is ', bike.bikeId);
 };
 
 
 // end of createBike submit handler
-
-
-
-
-// var bike = {
-//   bikeId: null,
-//   title: "",
-//   description: "",
-
-//   createGame: function(cb){
-//     ssme_api.createBike(session.token, createBikeCb);, function(err, data){
-//       if (err) { console.error(err); }
-//       console.log(data);
-//       game.board = data.game.cells;
-//       game.gameId = data.game.id;
-//       game.gameOver = data.game.over;
-//       if(cb) {cb();}
-//     });
-//   },
 
 

@@ -50,7 +50,7 @@ var ssme_api = {
       }, callback);
   },
 
-  createBike: function (token, callback) {
+  createBike: function (token, bike, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/bikes',
@@ -58,21 +58,9 @@ var ssme_api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
-      data: JSON.stringify({}),
+      data: JSON.stringify(bike),
       dataType: 'json',
     }, callback);
-  },
-
-    createGame: function(cb){
-
-    tttapi.createGame(session.token, function(err, data){
-      if (err) { console.error(err); }
-      console.log(data);
-      game.board = data.game.cells;
-      game.gameId = data.game.id;
-      game.gameOver = data.game.over;
-      if(cb) {cb();}
-    });
   },
 
   showBike: function (id, token, callback) {

@@ -39,7 +39,7 @@ $(function() {
     console.log(bike);
 
     // do the createBike function
-    ssme_api.createBike(session.token, createBikeCb);
+    ssme_api.createBike(session.token, bike, createBikeCb);
     e.preventDefault();
   });
 
