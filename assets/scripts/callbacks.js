@@ -85,11 +85,11 @@ var loginCb = function (error, data) {
           Authorization: 'Token token=' + session.token
         },
       dataType: 'json'
-      }).done(function(bikes_data){
-        console.log("My Bikes are " + bikes_data);
+      }).done(function(data){
+        console.log("My Bikes are " + data);
 
         var $userBikeList = $('#user-bikes');
-        var bikes = bikes_data.bikes;
+        var bikes = data.bikes;
 
         bikes.forEach(function(bike){
         $userBikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
@@ -131,6 +131,12 @@ var createBikeCb = function (error, bike) {
   var $newBike = $('#new-bike');
     var bikes = bike.title;
     $newBike.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
+
+    var $userBikeList = $('#user-bikes');
+    $userBikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
+
+    var $bikeList = $('#all-bikes');
+    $bikeList.append('<div class="bike-posts"> <h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
 
            // console.log for testing
     console.log('bikes are ', bikes);
