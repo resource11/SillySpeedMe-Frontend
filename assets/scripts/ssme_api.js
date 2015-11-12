@@ -35,19 +35,36 @@ var ssme_api = {
     }, callback);
   },
 
-  //Authenticated api actions
-
-  // we don't need to authenticate to show bikes, yes?
-  //listBikes: function (token, callback)
   listBikes: function (callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/bikes',
-      // headers: {
-      //   Authorization: 'Token token=' + token
-      // },
       dataType: 'json'
       }, callback);
+  },
+
+  showBike: function (id, token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/bikes/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
+
+  //Authenticated api actions
+
+  logout: function(id, token, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/login',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(id),
+      dataType: 'json'
+    }, callback);
   },
 
   createBike: function (token, bike, callback) {
@@ -60,17 +77,6 @@ var ssme_api = {
       contentType: 'application/json',
       data: JSON.stringify(bike),
       dataType: 'json',
-    }, callback);
-  },
-
-  showBike: function (id, token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/bikes/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
     }, callback);
   },
 
@@ -100,15 +106,15 @@ var ssme_api = {
     }, callback);
   },
 
-  unFavoriteBike: function (id, data, token, callback) {
+    deleteBike: function (id, token, callback) {
     this.ajax({
       method: 'DELETE',
-      url: this.url + '/favorites/' + id,
+      url: this.url + '/bikes/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
+      data: JSON.stringify(id),
       dataType: 'json'
     }, callback);
   },

@@ -15,6 +15,7 @@
 
     <header id="header" class="">
      <div class="brand">
+     <h1>SillySpeed Me</h1>
        <img src="assets/images/ssme_logo.png" alt="SillySpeed Me logo">
        <div class="profile-nav">
          <h5>Welcome [user]</h5>
@@ -57,18 +58,14 @@
 
       <div class="bikes-for-sale">
         <h2>Bikes for sale</h2>
-        <div>
-          <ul id="all-bikes">
-          </ul>
-          <button id='bikes_button'>Get Bikes</button>
+        <div id="all-bikes">
+          <!-- <button id='bikes_button'>Get Bikes</button> -->
         </div>
       </div><!-- end bikes-for-sale -->
 
-      <div class="profile">
-        <h2>[profile name]'s bike postings</h2>
-        <div>
-          <ul id="user-bikes">
-          </ul>
+      <div id="profile">
+        <h2>Your bikes for sale</h2>
+        <div id="user-bikes">
         </div>
         <div class="favorites">
 
@@ -84,11 +81,9 @@
                         </form>
            <!--  <button id='create_bike'>List a bike</button> -->
           </div>
-        <div class="new-bike-posting">
+        <div>
           <h4>your new posting</h4>
-          <div class="posting-display">
-          <ul class="new-bike">
-          </ul>
+          <div id="new-bike" class="posting-display">
 
           </div>
 
@@ -107,6 +102,7 @@
 
     </div> <!-- /container -->
   </div>
+
   <!-- end wrapper -->
 
   <!-- begin nav -->
@@ -115,14 +111,8 @@
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="assets/scripts/ssme_api.js" type="text/javascript" defer charset="utf-8"></script>
-  <script src="assets/scripts/callbacks.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="assets/scripts/ssme_button_callbacks.js" type="text/javascript" defer charset="utf-8"></script>
     <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>
-
-  <!--
-  <script src="assets/js/user_session.js" type="text/javascript" defer charset="utf-8"></script>
-  <script src="assets/js/game_button_handlers.js" type="text/javascript" defer charset="utf-8"></script>
-  <script src="assets/js/app.js" type="text/javascript" defer charset="utf-8"></script>
-  -->
   <!-- end scripts -->
 </body>
 </html>
