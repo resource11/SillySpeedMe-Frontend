@@ -177,11 +177,25 @@ var createBikeCb = function (error, bike) {
 };
 // end of createBike submit handler
 
-// listBikes callback
+// favoriteBikes callback
+var favoriteBikeCb = function (error, favorite_bike) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
+    return;
+  }
+
+  console.log('data is ' + favorite_bike)
+  // find div by id, delete that div in user bikes then in all bikes
+
+  $(".user-messages").html("<strong>Bike favorite success!</strong>");
+
+};
+
+// deleteBikes callback
 var deleteBikeCb = function (error, data) {
   if (error) {
     console.error(error);
-    console.log('status: ' + error.status + ', error: ' + error.error);
     $(".user-messages").html("<strong>Error! Bike deletion fail!</strong>");
     return;
   }

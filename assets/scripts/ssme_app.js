@@ -8,8 +8,10 @@ var user = {
 //$(document).ready(...
 $(function() {
 
+
   // list all bikes for sale
   ssme_api.listBikes(listBikesCb);
+
 
   // register event handler
   $('#register').on('submit', function(e) {
@@ -47,7 +49,7 @@ $(function() {
     // test to see if bike was created from wrap function
     console.log(bike);
 
-    ssme_api.createBike(session.token, bike, createBikeCb);
+    ssme_api.createBike(bike, session.token, createBikeCb);
     e.preventDefault();
   });
 
@@ -71,16 +73,49 @@ $(function() {
       // do an ajax DELETE request
       ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
+
     // update the bike list in the viewport
     // find bike in all bikes listing
 
-
     $(this).closest('.bike-posts').remove();
-    $('#all-bikes').find('bike-posts').remove();
-    // var findAllBikes = $('#all-bikes').find('.bike-posts')
-    // findAllBikes.remove();
-    // ssme_api.listBikes(listBikesCb);
+    // $('#all-bikes').find('bike-posts').remove();
 
+  });
+
+    // favorite bike event handler
+  $('#all-bikes').on('click', '.favorite-bike', function() {
+  console.log("clicked");
+
+    // find the bike_id attached to the div
+    var thisFavoriteId = $(this).closest('.bike-posts').attr('id');
+
+    // confirmation the bike_id was captured
+    console.log(thisFavoriteId);
+    console.log(session.token);
+
+    // change bg color as a test
+    $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
+
+    // $('#all-bikes').find('.bike-posts').attr(thisFavoriteId);
+
+
+
+    var favoriteData = {
+      favorite: true,
+      user_id: session.userId,
+      bike_id: thisFavoriteId
+    };
+    // $thisBike.css({'background-color': 'purple', 'font-weight': 'bold'});
+
+    // do an ajax POST request
+    ssme_api.favoriteBike(favoriteData, session.token, favoriteBikeCb);
+
+
+    // update the bike list in the viewport
+    // find bike in all bikes listing
+
+    // $(this).closest('.bike-posts').remove();
+    // $('#all-bikes').find('bike-posts').remove();
 
   });
 

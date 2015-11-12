@@ -3,7 +3,7 @@
 // api HTTP requests/responses
 
 var ssme_api = {
-  gameWatcher: null,
+  bikeWatcher: null,
   url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
@@ -43,16 +43,16 @@ var ssme_api = {
       }, callback);
   },
 
-  showBike: function (id, token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/bikes/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
-    }, callback);
-  },
+  // showBike: function (id, token, callback) {
+  //   this.ajax({
+  //     method: 'GET',
+  //     url: this.url + '/bikes/' + id,
+  //     headers: {
+  //       Authorization: 'Token token=' + token
+  //     },
+  //     dataType: 'json'
+  //   }, callback);
+  // },
 
 
   //Authenticated api actions
@@ -67,7 +67,7 @@ var ssme_api = {
     }, callback);
   },
 
-  createBike: function (token, bike, callback) {
+  createBike: function (bike, token, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/bikes',
@@ -76,35 +76,48 @@ var ssme_api = {
       },
       contentType: 'application/json',
       data: JSON.stringify(bike),
-      dataType: 'json',
-    }, callback);
-  },
-
-  editBike: function (id, data, token, callback) {
-    this.ajax({
-      method: 'PATCH',
-      url: this.url + '/bikes/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
       dataType: 'json'
     }, callback);
   },
 
-  favoriteBike: function (id, data, token, callback) {
+  // editBike: function (id, data, token, callback) {
+  //   this.ajax({
+  //     method: 'PATCH',
+  //     url: this.url + '/bikes/' + id,
+  //     headers: {
+  //       Authorization: 'Token token=' + token
+  //     },
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(data),
+  //     dataType: 'json'
+  //   }, callback);
+  // },
+
+  favoriteBike: function (favoriteData, token, callback) {
     this.ajax({
-      method: 'PATCH',
-      url: this.url + '/favorites/' + id,
+      method: 'POST',
+      url: this.url + '/favorite_bikes',
       headers: {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
+      data: JSON.stringify(favoriteData),
       dataType: 'json'
     }, callback);
   },
+
+  // editFavoriteBike: function (id, data, token, callback) {
+  //   this.ajax({
+  //     method: 'PATCH',
+  //     url: this.url + '/bikes/' + id,
+  //     headers: {
+  //       Authorization: 'Token token=' + token
+  //     },
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(data),
+  //     dataType: 'json'
+  //   }, callback);
+  // },
 
     deleteBike: function (id, token, callback) {
     this.ajax({
@@ -120,13 +133,13 @@ var ssme_api = {
   },
 
 
-  watchGame: function (id, token) {
-    var url = this.url + '/games/' + id + '/watch';
+  watchBikes: function (id, token) {
+    var url = this.url + '/bikes/' + id + '/watch';
     var auth = {
       Authorization: 'Token token=' + token
     };
-    this.gameWatcher = resourceWatcher(url, auth); //jshint ignore: line
-    return this.gameWatcher;
+    this.bikeWatcher = resourceWatcher(url, auth); //jshint ignore: line
+    return this.bikeWatcher;
   }
 
 };
