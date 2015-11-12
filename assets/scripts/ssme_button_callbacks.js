@@ -193,3 +193,17 @@ var deleteBikeCb = function (error, data) {
 };
 
 
+// favoriteBike callback
+var favoriteBikeCb = function (error, favorite_bike) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
+    return;
+  }
+
+  // console.log test
+  console.log('data is ' + favorite_bike);
+
+};
+// end of favoriteBike submit handler
+

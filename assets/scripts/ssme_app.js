@@ -84,9 +84,23 @@ $(function() {
 
   });
 
+  // favorite a bike handler
+  $('#favorite_bike').on('submit', function(e) {
+    var favorite_bike = wrap('favorite_bike', form2object(this));
+
+    // test to see if the session.token is recognized
+    console.log(session.token);
+
+    // test to see if bike was created from wrap function
+    console.log(favorite_bike);
+
+    ssme_api.favoriteBike(favorite_bike, session.token, favoriteBikeCb);
+    e.preventDefault();
+  });
 
 
 
+// var credentials = wrap('credentials', form2object(this));
 
 
 });
