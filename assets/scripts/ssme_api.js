@@ -106,6 +106,19 @@ var ssme_api = {
     }, callback);
   },
 
+  updateFavBike: function (id, favoriteUpdate, token, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/favorite_bikes/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(favoriteUpdate),
+      dataType: 'json'
+    }, callback);
+  },
+
     deleteBike: function (id, token, callback) {
     this.ajax({
       method: 'DELETE',
