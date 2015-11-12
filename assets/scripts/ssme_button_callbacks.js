@@ -218,7 +218,7 @@ var favoriteBikeCb = function (error, favorite_bike) {
   }
 
   // console.log test
-    console.log('favorite bike data is ' + favorite_bike);
+ console.log('favorite bike data is ' + favorite_bike);
 
   var $userFavoriteList = $('#user-favorite-bikes');
   var favBike = favorite_bike;
