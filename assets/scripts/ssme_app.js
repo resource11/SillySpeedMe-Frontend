@@ -68,6 +68,7 @@ $(function() {
     e.preventDefault();
   });
 
+
   // updateFavBike handler
 $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
   console.log("clicked");
