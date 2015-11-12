@@ -68,7 +68,6 @@ $(function() {
     e.preventDefault();
   });
 
-
   // updateFavBike handler
 $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
   console.log("clicked");
@@ -79,13 +78,6 @@ $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
 
     // confirmation the bike_id was captured
     console.log(thisFavBikeId);
-
-    // convert thisFaveBikeId from string to integer using
-    // parseInt(thisFaveBikeId , 10);
-
-    // or
-
-    // parseInt(thisFaveBikeId , 10);
 
     var updateFavBike = {
       favorite: false,
@@ -110,7 +102,8 @@ $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
 
   // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
-  console.log("clicked");
+
+    console.log("clicked");
 
     // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.bike-posts').attr('id');
