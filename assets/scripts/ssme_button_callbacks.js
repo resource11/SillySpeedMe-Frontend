@@ -6,6 +6,8 @@ var session = {
 
 };
 
+var $bikeList = $('#all-bikes');
+
 // create object from form data
 var form2object = function(form) {
   var data = {};
@@ -128,6 +130,8 @@ var listBikesCb = function (error, data) {
   }
   // grab bikes from Rails
   var bikes = data.bikes;
+
+  // console.log tests
   console.log('bikes are ', bikes);
   console.log('bikeData 1 is ', bikes[0].id);
 
@@ -146,6 +150,8 @@ var createBikeCb = function (error, bike) {
     $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
     return;
   }
+
+  // console.log test
   console.log('data is ' + bike);
 
 
@@ -182,7 +188,7 @@ var deleteBikeCb = function (error, data) {
 
   // find div by id, delete that div in user bikes then in all bikes
 
-  console.log('bike deleted');
+  $(".user-messages").html("<strong>Bike deletion success!</strong>");
 
 };
 

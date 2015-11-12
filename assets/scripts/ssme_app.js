@@ -37,9 +37,6 @@ $(function() {
 
   // handlers requiring authentication
 
-
-
-
   // create new bike handler
   $('#bike').on('submit', function(e) {
     var bike = wrap('bike', form2object(this));
@@ -55,37 +52,37 @@ $(function() {
   });
 
 
-  // test click handler for delete button
+  // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
   console.log("clicked");
 
     // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.bike-posts').attr('id');
+
+    // confirmation the bike_id was captured
     console.log(thisBikeId);
+
+    // change bg color as a test
     $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
-    ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
-    // wrap the id into an object
+    // $('#all-bikes').find('.bike-posts').attr(thisBikeId);
+    // $thisBike.css({'background-color': 'purple', 'font-weight': 'bold'});
 
-    // do an ajax DELETE request
+      // do an ajax DELETE request
+      ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
-    // update the bikes
+    // update the bike list in the viewport
+    // find bike in all bikes listing
+
+
     $(this).closest('.bike-posts').remove();
+    $('#all-bikes').find('bike-posts').remove();
+    // var findAllBikes = $('#all-bikes').find('.bike-posts')
+    // findAllBikes.remove();
+    // ssme_api.listBikes(listBikesCb);
 
 
-    // var bike = wrap('bike', form2object(this));
   });
-
-// $(staticAncestors).on(eventName, dynamicChild, function() {});
-
- var indexMenus = function(error, data) {
-    if (error) {
-      console.error(error);
-      return;
-    }
-      var menuHTML = menuTemplate({weekly_menus: data.weekly_menus});
-      $('#allMenus').html(menuHTML);
-  };
 
 
 
