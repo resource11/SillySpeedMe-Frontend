@@ -103,7 +103,7 @@ $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
 
   // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
-  console.log("clicked");
+    console.log("clicked");
 
     // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.bike-posts').attr('id');
