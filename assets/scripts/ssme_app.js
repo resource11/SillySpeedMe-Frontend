@@ -38,40 +38,6 @@ $(function() {
   // handlers requiring authentication
 
 
-//   $('.bike-posts').on('click', function() {
-//     // $(this).parent(div)
-// console.log('button clicked');
-//     // var message = $('<span>Call 1-555-jquery-air to book this tour</span>');
-//     // $(this).append(message);
-//     // $(this).find('button').hide();
-//   });
-
-  // $('#pg_menu_content').on('click', '#btn_a', function(){
-  //   console.log(this.value);
-  // });
-
-  $('#user-bikes').on('click', '.delete-bike', function() {
-    console.log("clicked");
-    var thisBikeId = $(this).closest('.bike-posts').attr('id');
-    console.log(thisBikeId);
-
-    // console.log(data);
-
-
-    var bike = wrap('bike', form2object(this));
-  });
-
-  // $(staticAncestors).on(eventName, dynamicChild, function() {});
-
- var indexMenus = function(error, data) {
-    if (error) {
-      console.error(error);
-      return;
-    }
-      var menuHTML = menuTemplate({weekly_menus: data.weekly_menus});
-      $('#allMenus').html(menuHTML);
-  };
-
 
 
   // create new bike handler
@@ -90,6 +56,36 @@ $(function() {
 
 
   // test click handler for delete button
+  $('#user-bikes').on('click', '.delete-bike', function() {
+  console.log("clicked");
+
+    // find the bike_id attached to the div
+    var thisBikeId = $(this).closest('.bike-posts').attr('id');
+    console.log(thisBikeId);
+    $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
+    ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
+
+    // wrap the id into an object
+
+    // do an ajax DELETE request
+
+    // update the bikes
+    $(this).closest('.bike-posts').remove();
+
+
+    // var bike = wrap('bike', form2object(this));
+  });
+
+// $(staticAncestors).on(eventName, dynamicChild, function() {});
+
+ var indexMenus = function(error, data) {
+    if (error) {
+      console.error(error);
+      return;
+    }
+      var menuHTML = menuTemplate({weekly_menus: data.weekly_menus});
+      $('#allMenus').html(menuHTML);
+  };
 
 
 

@@ -182,18 +182,7 @@ var deleteBikeCb = function (error, data) {
 
   // find div by id, delete that div in user bikes then in all bikes
 
-
-  // grab bikes from Rails
-  var bikes = data.bikes;
-  console.log('bikes are ', bikes);
-
-  console.log('bikeData 1 is ', bikes[0].id);
-
-
-  // // iterate through the JS array of bikes,append each bike item to a div with id attribute 'all-bikes'
-  // bikes.forEach(function(bike){
-  //   $('#all-bikes').append('<div id=' + bike.id + 'class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
-  // });
+  console.log('bike deleted');
 
 };
 
