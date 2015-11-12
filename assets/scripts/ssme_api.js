@@ -67,7 +67,7 @@ var ssme_api = {
     }, callback);
   },
 
-  createBike: function (token, bike, callback) {
+  createBike: function (token, data, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/bikes',
@@ -75,7 +75,7 @@ var ssme_api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
-      data: JSON.stringify(bike),
+      data: JSON.stringify(data),
       dataType: 'json'
     }, callback);
   },
@@ -93,7 +93,7 @@ var ssme_api = {
     }, callback);
   },
 
-  favoriteBike: function (favorite_bike, token, callback) {
+  favoriteBike: function (data, token, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/favorite_bikes',
@@ -101,7 +101,7 @@ var ssme_api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(favorite_bike),
+      data: JSON.stringify(data),
       dataType: 'json'
     }, callback);
   },

@@ -80,6 +80,13 @@ $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
     // confirmation the bike_id was captured
     console.log(thisFavBikeId);
 
+    // convert thisFaveBikeId from string to integer using
+    // parseInt(thisFaveBikeId , 10);
+
+    // or
+
+    // parseInt(thisFaveBikeId , 10);
+
     var updateFavBike = {
       favorite: false,
       user_id: session.userId,

@@ -54,6 +54,7 @@ nav{
   max-width: 80%;
   margin: 0 auto;
   border: 1px solid black;
+  float:right;
 }
 
 nav ul{
@@ -112,9 +113,11 @@ p{margin: 0 0 10px 0; line-height: 1;}
 }*/
 
 input{
+      width: 80%;
       border:0;
       padding:10px;
-      margin: 2px;
+      margin: 2px auto;
+      text-align: center;
       font-size:12px;
       display: block;
     }
@@ -124,11 +127,15 @@ input[type="submit"] {
 }
 
 #register, #login, .user-messages, .new-bike-posting {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  /*height: 200px;*/
   overflow: auto;
   background-color: #eee;
   border: 1px solid black;
+}
+
+.reg-login {
+  width: 100%;
 }
 
 /*.new-bike-posting {
