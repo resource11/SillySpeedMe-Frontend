@@ -89,14 +89,14 @@ var loginCb = function (error, data) {
       }).done(function(data){
         console.log("My Bikes are " + data);
 
-        var $userBikeList = $('#user-bikes');
+        var userBikeList = $('#user-bikes');
         var bikes = data.bikes;
 
         // add user name to 'your bikes for sale'
         // stretch goal
         // $('#profile h2').append(bike.user_id + '\'s bikes for sale')
         bikes.forEach(function(bike){
-        $userBikeList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
+        userBikeList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
 
 
       });
@@ -121,11 +121,12 @@ var loginCb = function (error, data) {
       // console.log test
       console.log('favorite bike data is ' + data.favorite_bikes);
 
-      var $userFavoriteList = $('#user-favorite-bikes');
+      var userFavoriteList = $('#user-favorite-bikes');
       var favBikes = data.favorite_bikes;
 
       favBikes.forEach(function(favBike){
-        $userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike </h3><p> bike id: '+ favBike.bike_id  +'</p><p> user id: '+ favBike.user_id  +'</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
+        userFavoriteList.append(
+          '<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike id ' + favBike.id + '</h3><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
 
       });
       // console.log for testing
@@ -207,7 +208,7 @@ var createBikeCb = function (error, data) {
 
 
 // favoriteBike callback
-var favoriteBikeCb = function (error, favorite_bike) {
+var favoriteBikeCb = function (error, data) {
   if (error) {
     console.error(error);
     $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
@@ -215,33 +216,35 @@ var favoriteBikeCb = function (error, favorite_bike) {
   }
 
   // console.log test
- console.log('favorite bike data is ' + favorite_bike);
+ console.log('favorite bike data is ' + data);
 
-  var $userFavoriteList = $('#user-favorite-bikes');
-  var favBike = favorite_bike;
+  var userFavoriteList = $('#user-favorite-bikes');
+  var favBike = data.favorite_bike;
 
   // append created favorite bike to div
-  $userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike </h3><p> bike id: '+ favBike.bike_id  +'</p><p> user id: '+ favBike.user_id  +'</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
+  userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike id ' + favBike.id + '</h3><p> favorite: ' + favBike.favorite  + '</p><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
 
 };
 // end of favoriteBike submit handler
 
 // updateFavBike callback
-var updateFavBikeCb = function (error, favorite) {
+var updateFavBikeCb = function (error, data) {
   if (error) {
     console.error(error);
     $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
     return;
   }
-
   // console.log test
-  console.log('favorite bike favorite is ' + favorite);
+  console.log('favorite bike favorite is ' + data);
 
-  var $userFavoriteList = $('#user-favorite-bikes');
-  var favBike = favorite_bike;
+  // var userFavoriteList = $('#user-favorite-bikes');
+  // var favBike = data.favorite_bike;
+
+  // console.log(data.favorite_bike);
+  console.log('favorite status is' + data.favorite_bike.id);
 
   // remove created favorite bike from div
-  $userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike </h3><p> bike id: '+ favBike.bike_id  +'</p><p> user id: '+ favBike.user_id  +'</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
+  // userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts"><h3> Favorite bike id ' + favBike.id + '</h3><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
 
 };
 // end of updateFavBike submit handler

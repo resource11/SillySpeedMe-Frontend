@@ -56,55 +56,73 @@ $(function() {
 
   // favorite a bike handler
   $('#favorite_bike').on('submit', function(e) {
-    var favorite_bike = wrap('favorite_bike', form2object(this));
+    var data = wrap('favorite_bike', form2object(this));
 
     // test to see if the session.token is recognized
     console.log(session.token);
 
     // test to see if bike was created from wrap function
-    console.log(favorite_bike);
+    console.log(data.favorite_bike);
 
-    ssme_api.favoriteBike(favorite_bike, session.token, favoriteBikeCb);
+    ssme_api.favoriteBike(data, session.token, favoriteBikeCb);
     e.preventDefault();
   });
 
 
-  // updateFavBike handler
-$('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
-  console.log("clicked");
+  // NEW updateFavBike a bike handler
+  $('#update_favorite').on('submit', function(e) {
+    var data = wrap('favorite_bike', form2object(this));
+    console.log("clicked");
+    // test to see if the data was wrapped
+    console.log(data.favorite_bike);
 
+    console.log(data.favorite_bike.id);
+    var id = data.favorite_bike.id;
+    // test to see if the session.token is recognized
+    console.log(session.token);
 
-    // find the bike_id attached to the div
-    var thisFavBikeId = $(this).closest('.bike-posts').attr('id');
-
-    // confirmation the bike_id was captured
-    console.log(thisFavBikeId);
-
-    var updateFavBike = {
-      favorite: false,
-      user_id: session.userId,
-      bike_id: thisFavBikeId
-    };
-
-    var favoriteUpdate = updateFavBike;
-
-    console.log(favoriteUpdate);
-
-    // change bg color as a test
-    $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
-
-
-
-
-    ssme_api.updateFavBike(thisFavBikeId, favoriteUpdate, session.token, updateFavBikeCb);
+    ssme_api.updateFavBike(id, data, session.token, updateFavBikeCb);
+    e.preventDefault();
   });
+
+
+//   // updateFavBike handler
+// $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
+//   console.log("clicked");
+
+
+//     // find the bike_id attached to the div
+//     var thisFavBikeId = $(this).closest('.bike-posts').attr('id');
+
+//     // confirmation the bike_id was captured
+//     console.log(thisFavBikeId);
+
+//     var updateFavBike = {
+//       id: thisFavBikeId,
+//       favorite: false,
+//       user_id: session.userId,
+//       bike_id: thisFavBikeId
+//     };
+
+//     var favoriteUpdate = updateFavBike;
+
+//     console.log(favoriteUpdate);
+
+//     // change bg color as a test
+//     $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
+
+
+
+
+//     ssme_api.updateFavBike(thisFavBikeId, favoriteUpdate, session.token, updateFavBikeCb);
+//   });
 
 
 
   // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
 
-    console.log("clicked");
+  console.log("clicked");
 
     // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.bike-posts').attr('id');

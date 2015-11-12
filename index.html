@@ -24,7 +24,9 @@
        <nav>
         <ul>
           <li><a href="#">list a bike</a></li>
-          <li><a href="#">edit a listing</a></li>
+          <li><a href="#">register</a></li>
+          <li><a href="#">login</a></li>
+          <!-- <li><a href="#">edit a listing</a></li> -->
         </ul>
       </nav>
     </div>
@@ -71,6 +73,19 @@
         <div class="favorites">
           <h2>Favorite a Bike</h2>
           <form id="favorite_bike">
+            <input name="favorite" type="text" placeholder="true">
+            <input name="user_id" type="text" placeholder="user_id number">
+            <input name="bike_id" type="text" placeholder="bike_id number">
+            <input type="submit">
+          </form>
+          <h2>Your favorite bikes</h2>
+          <div id="user-favorite-bikes">
+          </div>
+        </div>
+        <div class="favorites">
+          <h2>Favorite a Bike</h2>
+          <form id="update_favorite">
+            <input name="id" type="text" placeholder="favorite_bike id">
             <input name="favorite" type="text" placeholder="true">
             <input name="user_id" type="text" placeholder="user_id number">
             <input name="bike_id" type="text" placeholder="bike_id number">
