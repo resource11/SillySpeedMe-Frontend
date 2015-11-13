@@ -17,7 +17,7 @@ SillySpeed Me! is an app designed to allow the user to list a bike for sale and 
 ## PROJECT DELIVERABLES
 
 - A **working full-stack application**, hosted somewhere on the internet.
-- Two **Github repos** (one for my front-end and one for my [back-end]). 
+- Two **Github repos** (this one for my front-end and one for my [back-end](https://github.com/resource11/project2-api)). 
 - An **explanation** of the what the app does and how it works, the approach taken in building it, and any unsolved problems that you hit.
   - **User stories** written for your app.
   - At least one **wireframe** (or a link to one) that you've created to plan out your app.
@@ -48,11 +48,11 @@ The features of this app will address the following user stories.
 
 
 ##Wireframe
-* The initial wireframe mockup of a potential site design is located [here.](http://i.imgur.com/QiL8V6o.jpg)
+* The initial wireframe mockup of a potential site design is located [here.](link)
 
 ##App approach
 * I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype
-* After sketching a [wireframe](http://i.imgur.com/QiL8V6o.jpg) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](http://i.imgur.com/5ErZUba.jpg) to solve the problem of creating, reading, updating, and deleting data.
+* After sketching a [wireframe](link) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](link) to solve the problem of creating, reading, updating, and deleting data.
 * I also created a Rails backend, and structure my models, and associations, levering Ruby, SQL and ActiveRecord.
 * After completing many data validation tests on the back end, I integrated the back-end to the front-end for functionality tests.
 
@@ -61,7 +61,7 @@ The features of this app will address the following user stories.
 * My second challenge was creating a [user journey map] and [wireframes] that accurately achieved the goals of my user stories, while setting up a workflow process. I heavily leveraged Trello to keep track of items to do, in development and completed.
 * My third challenge was structuring my code in a way that could more easily integrate the ajax requests/response while paying attention to separation of concerns.
 * My fourth challenge was figuring out how the API sent data to, and received data from the backend back to the client side.
-* My fifth challenge was trying to use the process I sussed out with respect to the steps needed to request and receive specific information from the API and actually *integrate* that into my app. [This is the process](https://www.dropbox.com/s/w05iarrdua5nkeu/Connecting-API-process-flow.pdf?dl=0).
+* My fifth challenge was trying to use the process I sussed out with respect to the steps needed to request and receive specific information from the API and actually *integrate* that into my app. [This is the process](link).
 * My sixth challenge was gathering the data from the back end successfully and structuring my controllers and serializers to achieve this goal.
 * As of yet, I have not been successful in dynamically updating the content state of the viewport when a user favorites, unfavorites, or deletes a bike without refreshing the browser. I need to work on some more jQuery event handlers to make that functionality happen.
 
