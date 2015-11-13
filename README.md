@@ -6,10 +6,7 @@ This is my first foray into creating a **building your first real back-end app, 
 
 SillySpeed Me! is an app designed to allow the user to list a bike for sale and favorite a bike they'd like to buy. The target audience is those who love to race cyclocross, particularly on a singlespeed (aka, a SillySpeed) bike!
 
-
-## OVERVIEW
-
-My high-level project goals:
+## HIGH-LEVEL PROJECT GOALS
 - **Build a single-page application (SPA)** with **basic user authentication** that interacts with a **custom API built by me**
 - Build an app that can **create, read, update, and delete data** in a SQL database
 - **Create detailed user stories and wireframes** (before writing code) as part of my app planning process.
