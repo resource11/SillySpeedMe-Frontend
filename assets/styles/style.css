@@ -155,12 +155,6 @@ img{max-width: 100%;}
 
 p{margin: 0 0 10px 0; line-height: 1;}
 
-
-/*form {
-  border: none;
-  display: block;
-}*/
-
 input{
       width: 100%;
       border:0;
@@ -216,22 +210,12 @@ input[type="submit"] {
 }
 
 .API-register, .API-login {
-  /*display: inline-block;*/
   z-index: 9999;
-/*  right: 200px;*/
   width: 300px;
   height: 160px;
   padding: 10px 5px;
   background-color: rgba(0, 0, 0, .4);
 }
-
-/*.API-login {
-  right: 40px;
-  height: 170px;
-}
-*/
-
-
 
 .container{
   max-width: 100%;
@@ -288,9 +272,7 @@ input[type="submit"] {
   float: left;
   background: #eee;
   border-left: 5px solid rgba(87, 138, 7, 1);
-/*  box-shadow: 3px 2px 3px rgba(0,0,0,0.2);*/
   color: #555;
-  /*text-shadow: 1px 3px 1px rgba(0,0,0,0.5);*/
   transition: all .3s ease-in-out;
 }
 
@@ -339,7 +321,6 @@ input[type="submit"] {
 
 .current-user, .favorites {
   padding: 10px;
-/*  background-color: purple;*/
 }
 
 .favorite-menus {

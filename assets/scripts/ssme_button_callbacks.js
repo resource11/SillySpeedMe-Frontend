@@ -185,12 +185,6 @@ var listBikesCb = function (error, data) {
 
 
   // list all the bikes
-  // // create append each function
-  // bikes.forEach(function(bike, bkHTML, allBikesList){
-  //   bike.appendNewBike(bkHTML, allBikesList);
-  // });
-
-
   bikes.forEach(function(bike){
     $('#all-bikes').append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
   });

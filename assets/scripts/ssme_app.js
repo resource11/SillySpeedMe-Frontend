@@ -101,9 +101,6 @@ $(function() {
     // change bg color as a test
     $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
 
-    // $('#all-bikes').find('.bike-posts').attr(thisBikeId);
-    // $thisBike.css({'background-color': 'purple', 'font-weight': 'bold'});
-
     // do an ajax DELETE request
     ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
