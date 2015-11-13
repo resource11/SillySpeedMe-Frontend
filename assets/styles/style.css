@@ -171,7 +171,7 @@ input{
       color: #444;
     }
 input[type="submit"] {
-  background: red;
+  background: #CE2701;
   color:white;
 }
 
@@ -200,10 +200,14 @@ input[type="submit"] {
   border-bottom: 4px solid rgba(240,80,62, 1);
 }
 
-#register, #login, .user-messages, .new-bike-posting {
+#register, #login, .new-bike-posting {
   width: 90%;
   overflow: auto;
   background-color: #eee;
+}
+
+.user-messages {
+  color: #fff;
 }
 
 /*.reg-login {
@@ -217,7 +221,7 @@ input[type="submit"] {
   width: 300px;
   height: 160px;
   padding: 10px 5px;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, .4);
 }
 
 /*.API-login {
@@ -237,6 +241,7 @@ input[type="submit"] {
 .main, .secondary {
   max-width: 100%;
   margin: 10px auto;
+  overflow: auto;
 }
 
 .secondary {
@@ -299,7 +304,7 @@ input[type="submit"] {
 }
 
 .bikes-for-sale, .profile, .current-user, .favorites {
-  width: 75%;
+  width: 70%;
   min-height: 300px;
   margin-left: 10%
 }
@@ -310,25 +315,59 @@ input[type="submit"] {
 }
 
 .current-user {
-  width: 50%;
+  width: 63.4%;
   min-height: 300px;
 }
 
 .favorites {
-  width: 25%;
+  width: 35%;
   min-height: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+  overflow: auto;
 }
+
 .messages-container {
-  width: 310px;
-  height: 150px;
-  background-color: purple;
+  width: 290px;
+  height: 200px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(87, 138, 7, .8);
+  overflow: auto;
 }
 
 .current-user, .favorites {
   padding: 10px;
-  background-color: purple;
+/*  background-color: purple;*/
 }
 
+.favorite-menus {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, .4);
+  overflow: auto;
+}
+
+.favorite-menus  h4 {
+  color: #fff;
+  padding-top: 15px;
+}
+
+.usr-posts {
+  border-left: 5px solid #CE2701;
+}
+
+.usr-posts:hover {
+  background-color: #CE2701;
+}
+
+.usr-favs {
+  border-left: 5px solid #8D449E;
+}
+
+.usr-favs:hover {
+  background-color: #8D449E;
+}
 
 
 .left {
