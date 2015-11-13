@@ -4,160 +4,152 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sillyspeed Me - Fun is one-geared</title>
+  <title>Sillyspeed Me - One-gear. Fun.</title>
   <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
 
 <body>
+  <header id="header" class="">
+    <div class="brand">
+      <h1>SillySpeed Me</h1>
+    </div>
+  </header><!-- /header -->
+
+  <div class="logins-messages-creators">
+    <!--  <nav>
+      <ul class="top-nav">
+        <li id ="register-button" class="top-nav-register">Register</li>
+        <li id="login-button" class="top-nav-login">Log In</li>
+      </ul>
+    </nav> -->
+
+    <div class="reg-login API-register">
+      <h6>Register</h6>
+      <form id="register">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <input name="password_confirmation" type="password" placeholder="password confirmation">
+        <input name="register" type="submit" value="Register" class="top-reg-button">
+      </form>
+    </div><!-- end register -->
+
+    <div class="reg-login API-login">
+      <h6>Login</h6>
+      <form id="login">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <input name="login" type="submit" value="Login" class="top-login-button">
+      </form>
+    </div><!-- end login -->
+
+
+
+    <!-- user messages -->
+    <div class="messages-container">
+      <h4 class="user-messages">messages here</h4>
+    </div>
+
+  </div>
+
+  <section id="banner">
+    <h2>SillySpeed Me!</h2>
+    <h4>one-geared fun.</h4>
+    <p>[Register and Log in to list a bike]</p>
+  </section>
+
   <!-- begin wrapper -->
   <div class="wrapper">
 
-    <header id="header" class="">
-     <div class="brand">
-       <h1>SillySpeed Me</h1>
-       <img src="assets/images/ssme_logo.png" alt="SillySpeed Me logo">
-       <!-- <div class="profile-nav">
-         <h5>Welcome [user]</h5>
-         <p>See your profile</p>
-       </div> -->
-       <nav>
-        <ul>
-          <li><a href="#">list a bike</a></li>
-          <li><a href="#">register</a></li>
-          <li><a href="#">login</a></li>
-          <!-- <li><a href="#">edit a listing</a></li> -->
-        </ul>
-      </nav>
+    <!-- begin container -->
+    <div class="container">
+
+
+
+      <!-- all bikes -->
+    <div class="main">
+      <div class="bikes-for-sale">
+        <h4>Bikes for sale</h4>
+
+        <div id="all-bikes">
+          <!-- dynamic content -->
+        </div>
+
+      </div><!-- end bikes-for-sale -->
     </div>
 
+    <div class="secondary"><!-- current user -->
+          <div id="profile left">
 
-    </header><!-- /header -->
+            <div class="current-user">
+              <h4>Your bikes for sale</h4>
 
-    <div class="container">
-      <div class="reg-login">
-        <h2>Register</h2>
-        <form id="register">
-          <input name="email" type="text" placeholder="email">
-          <input name="password" type="password" placeholder="password">
-          <input name="password_confirmation" type="password" placeholder="password confirmation">
-          <input name="register" type="submit" value="Register">
-        </form>
-      </div><!-- end register -->
+              <div id="user-bikes">
+              <!-- dynamic content -->
+              </div>
+            </div>
 
-      <div class="reg-login">
-        <h2>Login</h2>
-        <form id="login">
-          <input name="email" type="text" placeholder="email">
-          <input name="password" type="password" placeholder="password">
-          <input name="login" type="submit" value="Login">
-        </form>
-      </div><!-- end login -->
+            <div class="favorites left">
+                <h4>Your favorite bikes</h4>
 
-      <div class="messages-container">
-        <h3 class="user-messages">messages here</h3>
-      </div><!-- end user-messages -->
+                <div id="user-favorite-bikes">
+                <!-- dynamic content -->
+                </div>
+
+            </div>
 
 
-      <div class="bikes-for-sale">
-        <h2>Bikes for sale</h2>
-        <div id="all-bikes">
-          <!-- <button id='bikes_button'>Get Bikes</button> -->
-        </div>
-      </div><!-- end bikes-for-sale -->
+          </div><!-- end profile -->
 
-      <div id="profile">
-        <h2>Your bikes for sale</h2>
-        <div id="user-bikes">
-        </div>
-        <div class="favorites">
-          <h2>Favorite a Bike</h2>
-          <form id="favorite_bike">
-            <input name="favorite" type="text" placeholder="true">
-            <input name="user_id" type="text" placeholder="user_id number">
-            <input name="bike_id" type="text" placeholder="bike_id number">
-            <input type="submit">
-          </form>
-          <h2>Your favorite bikes</h2>
-          <div id="user-favorite-bikes">
-          </div>
-        </div>
-        <div class="favorites">
-          <h2>Favorite a Bike</h2>
-          <form id="update_favorite">
-            <input name="id" type="text" placeholder="favorite_bike id">
-            <input name="favorite" type="text" placeholder="true">
-            <input name="user_id" type="text" placeholder="user_id number">
-            <input name="bike_id" type="text" placeholder="bike_id number">
-            <input type="submit">
-          </form>
-          <h2>Your favorite bikes</h2>
-          <div id="user-favorite-bikes">
-          </div>
-        </div>
-      </div><!-- end profile -->
+          <div name="list-a-bike left">
 
-      <div>
-        <h2>Post a bike</h2>
-        <div class="new-post-form">
-            <form id="bike">
-              <input name="title" type="text" placeholder="title of your post">
-              <input name="description" type="text" placeholder="Posting description">
-              <input type="submit">
-            </form>
-           <!--  <button id='create_bike'>List a bike</button> -->
-          </div>
-        <div>
-          <h4>your new posting</h4>
-          <div id="new-bike" class="posting-display">
 
+
+          <div class="favorite-menus left">
+           <h4>Post a bike</h4>
+            <div class="new-post-form">
+              <form id="bike">
+                <input name="title" type="text" placeholder="title of your post">
+                <input name="description" type="text" placeholder="Posting description">
+                <input type="submit">
+              </form>
+            </div>
+
+            <div>
+              <h4>Favorite a Bike</h4>
+                <form id="favorite_bike">
+                  <input name="favorite" type="text" placeholder="true">
+                  <input name="user_id" type="text" placeholder="user_id number">
+                  <input name="bike_id" type="text" placeholder="bike_id number">
+                  <input type="submit">
+                </form>
+            </div>
+
+            <div>
+              <h4>unFavorite a Bike</h4>
+               <form id="update_favorite">
+                 <input name="id" type="text" placeholder="favorite_bike id">
+                 <input name="favorite" type="text" placeholder="true">
+                 <input name="user_id" type="text" placeholder="user_id number">
+                 <input name="bike_id" type="text" placeholder="bike_id number">
+                 <input type="submit">
+               </form>
+            </div>
           </div>
 
         </div>
-      </div><!-- end post-bike -->
-
-       <div>
-        <h2>edit a bike</h2>
-        <div class="new-post-form">
-            <form id="bike">
-              <input name="title" type="text" placeholder="title of your post">
-              <input name="description" type="text" placeholder="Posting description">
-              <input type="submit">
-                        </form>
-           <!--  <button id='create_bike'>List a bike</button> -->
-          </div>
-        <div>
-          <h4>your new posting</h4>
-          <div id="new-bike" class="posting-display">
-
-          </div>
-
-        </div>
-      </div><!-- end post-bike -->
-
-       <!-- functionality tester window below -->
-
-      <div class="test-data-stuff">
-        <h2>API functionality testing</h2>
-          <br>
-          <label for="result">Result</label>
-          <textarea id="result"></textarea>
       </div>
-
-
-    </div> <!-- /container -->
   </div>
+   <!-- end container -->
 
-  <!-- end wrapper -->
-
-  <!-- begin nav -->
-  <!-- end nav -->
+</div>
+<!-- end wrapper -->
 
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="assets/scripts/ssme_api.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/ssme_button_callbacks.js" type="text/javascript" defer charset="utf-8"></script>
-    <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>
+  <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>
   <!-- end scripts -->
 </body>
 </html>
