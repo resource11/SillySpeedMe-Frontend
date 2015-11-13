@@ -86,43 +86,11 @@ $(function() {
   });
 
 
-//   // updateFavBike handler
-// $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
-//   console.log("clicked");
-
-
-//     // find the bike_id attached to the div
-//     var thisFavBikeId = $(this).closest('.bike-posts').attr('id');
-
-//     // confirmation the bike_id was captured
-//     console.log(thisFavBikeId);
-
-//     var updateFavBike = {
-//       id: thisFavBikeId,
-//       favorite: false,
-//       user_id: session.userId,
-//       bike_id: thisFavBikeId
-//     };
-
-//     var favoriteUpdate = updateFavBike;
-
-//     console.log(favoriteUpdate);
-
-//     // change bg color as a test
-//     $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
-
-
-
-
-//     ssme_api.updateFavBike(thisFavBikeId, favoriteUpdate, session.token, updateFavBikeCb);
-//   });
-
-
 
   // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
 
-  console.log("clicked");
+    console.log("clicked");
 
     // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.bike-posts').attr('id');
@@ -136,8 +104,8 @@ $(function() {
     // $('#all-bikes').find('.bike-posts').attr(thisBikeId);
     // $thisBike.css({'background-color': 'purple', 'font-weight': 'bold'});
 
-      // do an ajax DELETE request
-      ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
+    // do an ajax DELETE request
+    ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
     // update the bike list in the viewport
     // find bike in all bikes listing
