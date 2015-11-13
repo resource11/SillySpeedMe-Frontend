@@ -112,7 +112,7 @@ $(function() {
 
 
     $(this).closest('.bike-posts').remove();
-    $('#all-bikes').find('bike-posts').remove();
+    $('#all-bikes').find('.bike-posts').attr(thisBikeId).remove();
     // var findAllBikes = $('#all-bikes').find('.bike-posts')
     // findAllBikes.remove();
     // ssme_api.listBikes(listBikesCb);

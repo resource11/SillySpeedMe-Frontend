@@ -125,6 +125,7 @@ var loginCb = function (error, data) {
 
     });
 
+
   /// display current_user favorite_bikes
   $.ajax({
     method: 'GET',

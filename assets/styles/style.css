@@ -210,9 +210,10 @@ input[type="submit"] {
   color: #fff;
 }
 
-/*.reg-login {
-  width: 300px;
-}*/
+.reg-login  h6{
+  color: #fff;
+  padding: 10px 0 5px;
+}
 
 .API-register, .API-login {
   /*display: inline-block;*/
@@ -281,8 +282,8 @@ input[type="submit"] {
 }
 
 .bike-posts {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   margin: 5px;
   float: left;
   background: #eee;
@@ -304,7 +305,7 @@ input[type="submit"] {
 }
 
 .bikes-for-sale, .profile, .current-user, .favorites {
-  width: 70%;
+  width: 60%;
   min-height: 300px;
   margin-left: 10%
 }
@@ -320,7 +321,7 @@ input[type="submit"] {
 }
 
 .favorites {
-  width: 35%;
+  width: 43%;
   min-height: 300px;
   padding-top: 10px;
   margin-top: 10px;
@@ -351,6 +352,7 @@ input[type="submit"] {
 .favorite-menus  h4 {
   color: #fff;
   padding-top: 15px;
+  font-size: 1.25em;
 }
 
 .usr-posts {
