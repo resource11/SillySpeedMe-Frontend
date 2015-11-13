@@ -15,34 +15,28 @@ My high-level project goals:
 
 ---
 
-## DELIVERABLES
+## PROJECT DELIVERABLES
 
-When you present your project, you must hand in the following things
-
-- A **working full-stack application, built by you**, hosted somewhere on the internet (see Technical Requirements, below)
-- Two **Github repos** (one for your front-end and one for your back-end), with frequent commits dating back to the very beginning of the project. Each repo will need a **README.md file** with a link to the other repo. Your front-end repo's README should also have
-  - An **explanation** of the what the app does and how it works, the approach taken in building it, and any unsolved problems that you hit.
+- A **working full-stack application**, hosted somewhere on the internet.
+- Two **Github repos** (one for my front-end and one for my [back-end]). 
+- An **explanation** of the what the app does and how it works, the approach taken in building it, and any unsolved problems that you hit.
   - **User stories** written for your app.
   - At least one **wireframe** (or a link to one) that you've created to plan out your app.
   - A **link** to the live application.
 
 #### Technical Requirements
 
-In order to get a satisfactory score, your app must:
-
-* Have an **API** that is securely accessible by your browser app, built using frameworks covered in class.
+* Have an **API** that is securely accessible by the browser app, built using frameworks covered in class.
 * Create **at least 4 RESTful routes** for handling GET, POST, PUT/PATCH, and DELETE requests.
 * **Utilize an ORM** to create a database table structure and interact with data.
-* **Use a front-end Javascript app** to communicate with your API (both read and write) and render data that it receives in the browser.
+* **Use a front-end Javascript app** to communicate with the API (both read and write) and render data that it receives in the browser.
 * Have **semantically clean HTML and CSS**
 * Be **deployed online**, so that it is accessible to the public
 
-##### Stretch Goals
-
-Once (and only once) you've satisfied the core requirements, here are some additional goals that you can shoot for:
-* Incorporate Bootstrap, Handlebars, or some other front-end tool.
-* Interact with third-party APIs and integrate them into your app.
+##### Stretch Goals.
 * Put some extra thought and effort into visual and UI design.
+* Integrate photo upload
+* Integrate some jQuery and CSS animations
 
 ##User stories
 * The users in this scenario are individuals seeing to list a singlespeed bike for sale and favorite other bikes listed for sale.
