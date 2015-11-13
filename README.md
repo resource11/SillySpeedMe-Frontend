@@ -1,8 +1,10 @@
 # SillySpeed Me!
 
-### Overview
-
 This is my first foray into creating a **building your first real back-end app, with a front-end to match,** integrating 4 Restful APIs.
+
+## OVERVIEW
+
+SillySpeed Me! is an app designed to allow the user to list a bike for sale and favorite a bike they'd like to buy. The target audience is those who love to race cyclocross, particularly on a singlespeed (aka, a SillySpeed) bike!
 
 
 ## OVERVIEW
