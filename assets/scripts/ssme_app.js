@@ -10,19 +10,20 @@ var user = {
 $(function() {
 
   // list all bikes for sale
-  ssme_api.listBikes(listBikesCb);
+  ssme_api.listAllBikes(listAllBikesCb);
 
   // register event handler
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
+
     ssme_api.register(credentials, regCb);
     e.preventDefault();
-    console.log(JSON.stringify(credentials, null, 4));
   });
 
   // login event handler
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
+
     ssme_api.login(credentials, loginCb);
     e.preventDefault();
   });
@@ -30,6 +31,7 @@ $(function() {
   // logout event handler
   $('#logout').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
+
     ssme_api.login(credentials, logoutCb);
     e.preventDefault();
   });
@@ -40,15 +42,9 @@ $(function() {
 
   // create new bike handler
   $('#bike').on('submit', function(e) {
-    var bike = wrap('bike', form2object(this));
+    var data = wrap('bike', form2object(this));
 
-    // test to see if the session.token is recognized
-    console.log(session.token);
-
-    // test to see if bike was created from wrap function
-    console.log(bike);
-
-    ssme_api.createBike(session.token, bike, createBikeCb);
+    ssme_api.createBike(session.token, data, createBikeCb);
     e.preventDefault();
   });
 
@@ -105,19 +101,15 @@ $(function() {
     ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
     // update the bike list in the viewport
-    // find bike in all bikes listing
-
-
     $(this).closest('.bike-posts').remove();
-    $('#all-bikes').find('.bike-posts').attr(thisBikeId).remove();
-    // var findAllBikes = $('#all-bikes').find('.bike-posts')
-    // findAllBikes.remove();
-    // ssme_api.listBikes(listBikesCb);
 
+
+    // find bike in all bikes listing and remove
+    // still debugging this
+    var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
+    thisBikeInAllBikes.remove();
 
   });
-
-
 
 
 });
