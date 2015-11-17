@@ -57,7 +57,7 @@ The features of this app will address the following user stories.
 * After completing many data validation tests on the back end, I integrated the back-end to the front-end for functionality tests.
 
 ##Challenges
-* My first challenge was figuring out the [data models], and how the data would relate to each other in the most logical manner with a goal of keeping my controllers skinny.
+* My first challenge was figuring out the [data models](https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0), and how the data would relate to each other in the most logical manner with a goal of keeping my controllers skinny.
 * My second challenge was creating a [user journey map](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) and [wireframes](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) that accurately achieved the goals of my user stories, while setting up a workflow process. I heavily leveraged Trello to keep track of items to do, in development and completed.
 * My third challenge was structuring my code in a way that could more easily integrate the ajax requests/response while paying attention to separation of concerns.
 * My fourth challenge was figuring out how the API sent data to, and received data from the backend back to the client side.
@@ -66,7 +66,7 @@ The features of this app will address the following user stories.
 * As of yet, I have not been successful in dynamically updating the content state of the viewport when a user favorites, unfavorites, or deletes a bike without refreshing the browser. I need to work on some more jQuery event handlers to make that functionality happen.
 
 ##Final Thoughts
-* In general, I think this is a great second project for showing how we can leverage our knowledge to creat full-stack applications! Ready for more...
+* In general, I think this is a great second project for showing how we can leverage our knowledge to create full-stack applications! Ready for more...
 
 [License](LICENSE)
 ------------------
