@@ -52,16 +52,16 @@ The features of this app will address the following user stories.
 
 ##App approach
 * I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype
-* After sketching a [wireframe](link) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](link) to solve the problem of creating, reading, updating, and deleting data.
-* I also created a Rails backend, and structure my models, and associations, levering Ruby, SQL and ActiveRecord.
+* After sketching a [wireframe](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) to solve the problem of creating, reading, updating, and deleting data.
+* I also created a Rails backend, and structure my [ERD models](https://www.dropbox.com/s/sy0v0j76ejnk1xl/ssme_ERD_Models.png?dl=0) and associations, leveraging Ruby, SQL and ActiveRecord.
 * After completing many data validation tests on the back end, I integrated the back-end to the front-end for functionality tests.
 
 ##Challenges
 * My first challenge was figuring out the [data models], and how the data would relate to each other in the most logical manner with a goal of keeping my controllers skinny.
-* My second challenge was creating a [user journey map] and [wireframes] that accurately achieved the goals of my user stories, while setting up a workflow process. I heavily leveraged Trello to keep track of items to do, in development and completed.
+* My second challenge was creating a [user journey map](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) and [wireframes](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) that accurately achieved the goals of my user stories, while setting up a workflow process. I heavily leveraged Trello to keep track of items to do, in development and completed.
 * My third challenge was structuring my code in a way that could more easily integrate the ajax requests/response while paying attention to separation of concerns.
 * My fourth challenge was figuring out how the API sent data to, and received data from the backend back to the client side.
-* My fifth challenge was trying to use the process I sussed out with respect to the steps needed to request and receive specific information from the API and actually *integrate* that into my app. [This is the process](link).
+* My fifth challenge was trying to use the process I sussed out with respect to the steps needed to request and receive specific information from the API and actually *integrate* that into my app.
 * My sixth challenge was gathering the data from the back end successfully and structuring my controllers and serializers to achieve this goal.
 * As of yet, I have not been successful in dynamically updating the content state of the viewport when a user favorites, unfavorites, or deletes a bike without refreshing the browser. I need to work on some more jQuery event handlers to make that functionality happen.
 
@@ -71,5 +71,5 @@ The features of this app will address the following user stories.
 [License](LICENSE)
 ------------------
 
-Source code distributed under the MIT license. Text and other assets copyright
+Source code distributed under the MIT license. Text and other visual assets copyright
 resource11, all rights reserved.
