@@ -1,6 +1,6 @@
 # SillySpeed Me!
 
-This is my first foray into creating a **building your first real back-end app, with a front-end to match,** integrating 4 Restful APIs.
+This is my first foray into creating a **building your first real [back-end](https://mighty-lowlands-8515.herokuapp.com) app, with a [front-end]( http://resource11.github.io/ssme_frontend) to match,** integrating 4 Restful APIs.
 
 ## OVERVIEW
 
