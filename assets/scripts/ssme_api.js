@@ -35,23 +35,12 @@ var ssme_api = {
     }, callback);
   },
 
-  listBikes: function (callback) {
+  listAllBikes: function (callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/bikes',
       dataType: 'json'
       }, callback);
-  },
-
-  showBike: function (id, token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/bikes/' + id,
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      dataType: 'json'
-    }, callback);
   },
 
 
@@ -79,6 +68,40 @@ var ssme_api = {
       dataType: 'json'
     }, callback);
   },
+
+  showBike: function (id, token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/bikes/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
+  listUserBikes: function (token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/bikes',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+      }, callback);
+  },
+
+  listFavBikes: function (token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/favorite_bikes',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+      }, callback);
+  },
+
 
   editBike: function (id, data, token, callback) {
     this.ajax({
@@ -119,7 +142,7 @@ var ssme_api = {
     }, callback);
   },
 
-    deleteBike: function (id, token, callback) {
+  deleteBike: function (id, token, callback) {
     this.ajax({
       method: 'DELETE',
       url: this.url + '/bikes/' + id,

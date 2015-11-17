@@ -3,36 +3,42 @@
 var session = {
   userId: null,
   token: null,
+};
 
+var bike = {
+  id: null,
+  title: null,
+  description: null,
+  user_id: null
+};
+
+var favorite_bike = {
+  id: null,
+  favorite: false,
+  user_id: null,
+  bike_id: null
 };
 
 // locations to append bikes
-// var newBike = $('#new-bike');
-var userBikesList = $('#user-bikes');
 var allBikesList = $('#all-bikes');
+var userBikesList = $('#user-bikes');
 var userFavoriteList = $('#user-favorite-bikes');
-
-// html to for each bike div
-var bkHTML = '<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>';
-
-var usrBkHTML = '<div id=' + bike.id + ' class="bike-posts usr-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>';
-
-
-// create function for append new bikes
-var appendNewBike = function(data, data2, location1, location2) {
-  location1.append(data);
-  location2.append(data2);
-};
-
-// create function for append favorite bikes
-var appendFavBike = function(data, location) {
-  location.append(data);
-};
 
 var removeBikes = function(data, location1, location2) {
   location1.find.location2.remove();
 };
 
+var listBikeHTML = function (bike) {
+  allBikesList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
+};
+
+var listUserBikeHTML = function(bike) {
+  userBikesList.append('<div id=' + bike.id + ' class="bike-posts usr-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
+ };
+
+var listFavBikeHTML = function(favBike) {
+  userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs"><h3> Favorite bike id ' + favBike.id + '</h3><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
+ };
 
 // create object from form data
 var form2object = function(form) {
@@ -87,8 +93,7 @@ var loginCb = function (error, data) {
     return;
   }
 
-  // assign data.user.id and data.user.token
-  // to user.id and user.token
+  // assign current_user.id and session.token
   session.userId = data.user.id;
   session.token = data.user.token;
   $('.user-messages').text('Welcome, user #' + session.userId);
@@ -100,57 +105,13 @@ var loginCb = function (error, data) {
   // display current_user status
   data.user.current_user = true;
 
-  // grab current_user bikes
-  $.ajax({
-      method: 'GET',
-      url: ssme_api.url + '/bikes',
-      headers: {
-          Authorization: 'Token token=' + session.token
-        },
-      dataType: 'json'
-      }).done(function(data){
-        console.log("My Bikes are " + data);
+  // list current user bikes for sale
+  ssme_api.listUserBikes(session.token, listUserBikesCb);
 
-        var userBikeList = $('#user-bikes');
-        var bikes = data.bikes;
-
-        bikes.forEach(function(bike){
-        userBikeList.append('<div id=' + bike.id + ' class="bike-posts usr-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
+  // list current user favorited bikes
+  ssme_api.listFavBikes(session.token, listFavBikesCb);
 
 
-      });
-      // console.log for testing
-      console.log('bikes are ', bikes);
-
-
-    });
-
-
-  /// display current_user favorite_bikes
-  $.ajax({
-    method: 'GET',
-    url: ssme_api.url + '/favorite_bikes',
-    headers: {
-        Authorization: 'Token token=' + session.token
-      },
-    dataType: 'json'
-    }).done(function(data){
-      // console.log test
-      console.log('favorite bike data is ' + data.favorite_bikes);
-
-      var userFavoriteList = $('#user-favorite-bikes');
-      var favBikes = data.favorite_bikes;
-
-      favBikes.forEach(function(favBike){
-        userFavoriteList.append(
-          '<div id=' + favBike.id + ' class="bike-posts usr-favs"><h3> Favorite bike id ' + favBike.id + '</h3><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove this Favorite</button></div>');
-
-      });
-      // console.log for testing
-      console.log('bikes are ', favBikes);
-
-
-  });
   console.log(JSON.stringify(data, null, 4));
 
 }; // end of login callback;
@@ -170,7 +131,7 @@ var logoutCb = function (error){
 };
 
 // listBikes callback
-var listBikesCb = function (error, data) {
+var listAllBikesCb = function (error, data) {
   if (error) {
     console.error(error);
     $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
@@ -179,14 +140,8 @@ var listBikesCb = function (error, data) {
   // grab bikes from Rails
   var bikes = data.bikes;
 
-  // console.log tests
-  console.log('bikes are ', bikes);
-  console.log('bikeData 1 is ', bikes[0].id);
-
-
-  // list all the bikes
   bikes.forEach(function(bike){
-    $('#all-bikes').append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="favorite-bike">Favorite this bike</button></div>');
+    listBikeHTML(bike);
   });
 
 };
@@ -198,34 +153,53 @@ var createBikeCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Bike create fail!</strong>");
     return;
   }
-  // console.log test
-  console.log('data is ' + data);
-
 
   var bike = data.bike;
-  // appendNewBike(bkHTML, usrBkHTML, allBikesList, usrBikesList);
-
-
-  // add the new bike next to the bike form
-  var newBike = $('#new-bike');
-  newBike.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
-
-  // add the new bike to the current_user's bike bucket
-  var userBikeList = $('#user-bikes');
-  userBikeList.append('<div id=' + bike.id + ' class="bike-posts usr-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike">Delete this listing</button></div>');
-
-  // add the new bike to the 'all bikes for sale' bucket
-  var bikeList = $('#all-bikes');
-  bikeList.append('<div id=' + bike.id + ' class="bike-posts"><h3>' + bike.title + '</h3><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p></div>');
-
-  // console.log for testing
-  console.log('bikes are ', data.bikes);
-
-  $('.user-messages').text('New bike ' + bike_id + ' created by user ' + data.user.id);
+  listBikeHTML(bike);
+  listUserBikeHTML(bike);
+  $('.user-messages').text('New bike ' + bike.id + ' created by user ' + data.user.id);
 
 };
 // end of createBike submit handler
 
+// listUserBikes callback
+var listUserBikesCb = function (error, data) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
+    return;
+  }
+
+  // grab bikes from Rails
+  var bikes = data.bikes;
+
+  bikes.forEach(function(bike){
+    listUserBikeHTML(bike);
+  });
+
+};
+
+// listFavBikes callback
+var listFavBikesCb = function (error, data) {
+  if (error) {
+    console.error(error);
+    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
+    return;
+  }
+
+  // console.log test
+  console.log('favorite bike data is ' + data.favorite_bikes);
+
+  var favBikes = data.favorite_bikes;
+
+  favBikes.forEach(function(favBike){
+    listFavBikeHTML(favBike);
+  });
+
+  // console.log for testing
+  console.log('bikes are ', favBikes);
+
+};
 
 
 // favoriteBike callback
@@ -239,12 +213,8 @@ var favoriteBikeCb = function (error, data) {
   // console.log test
  console.log('favorite bike data is ' + data);
 
-  var userFavoriteList = $('#user-favorite-bikes');
   var favBike = data.favorite_bike;
-
-  // append created favorite bike to div
-  userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs"><h3> Favorite bike id ' + favBike.id + '</h3><p> favorite: ' + favBike.favorite  + '</p><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p></div>');
-
+  listFavBikeHTML(favBike);
 };
 // end of favoriteBike submit handler
 
@@ -258,11 +228,10 @@ var updateFavBikeCb = function (error, data) {
   // console.log test
   console.log('favorite bike favorite is ' + data);
 
-  var userFavoriteList = $('#user-favorite-bikes');
   var favBike = data.favorite_bike;
 
-  // console.log(data.favorite_bike);
   console.log('favorite status is' + favBike.id);
+
   $(".user-messages").html("<strong>Favorite removed!</strong>");
 
 };
