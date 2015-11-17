@@ -48,7 +48,7 @@ The features of this app will address the following user stories.
 
 
 ##Wireframe
-* The initial wireframe mockup of a potential site design is located [here.](link)
+* The initial wireframe mockup of a potential site design is located [here.](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0)
 
 ##App approach
 * I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype
