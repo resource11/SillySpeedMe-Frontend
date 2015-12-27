@@ -19,6 +19,16 @@ $(function() {
 
   // menu transition click handlers
 
+  $('#all-bikes').on('mouseenter', '.favorite-bike', function() {
+    $(this).closest('i').removeClass('fa-heart-o');
+    $(this).closest('i').addClass('fa-heart');
+  });
+
+    $('#all-bikes').on('mouseleave', '.favorite-bike', function() {
+    $(this).closest('i').removeClass('fa-heart');
+    $(this).closest('i').addClass('fa-heart-o');
+  });
+
   // animate on register/login containers
   $('.register-a').on('click', function() {
     registerMenu.fadeIn().removeClass('hidden');
@@ -63,6 +73,7 @@ $(function() {
 
     ssme_api.register(credentials, regCb);
     e.preventDefault();
+    registerMenu.fadeOut(300);
   });
 
   // login event handler
@@ -71,6 +82,7 @@ $(function() {
 
     ssme_api.login(credentials, loginCb);
     e.preventDefault();
+    loginMenu.fadeOut(300);
   });
 
   // logout event handler

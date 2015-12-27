@@ -44,7 +44,7 @@ var ssme_api = {
   },
 
 
-    listAllFavBikes: function (callback) {
+  listAllFavBikes: function (callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/favorite_bikes',

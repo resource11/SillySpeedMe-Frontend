@@ -65,8 +65,10 @@ h3 {
 }
 
 h4 {
+  font-family: 'Lobster', cursive;
   font-size: 1.5em;
-  font-weight: 300;
+  /*font-weight: 300;*/
+  text-shadow: 1px 2px 2px rgba(0,0,0,0.5);
 }
 
 h5 {
@@ -237,10 +239,6 @@ input[type="submit"] {
 }
 
 .reg-login {
-/*  width: 300px;
-  height: 160px;
-  padding: 10px 5px;
-  background-color: rgba(0, 0, 0, .4);*/
   margin: 0 auto;
 }
 
@@ -250,35 +248,9 @@ input[type="submit"] {
   overflow: auto;
 }
 
-/*.main, .secondary {
-  max-width: 100%;
-  margin: 10px auto;
-  overflow: auto;
-}
-
-.secondary {
-  background-color: #e6e6e6;
-}*/
-
 .list-a-bike {
   margin-right: 10%;
 }
-
-/*.bikes-for-sale, .profile, .post-bike {
-  overflow: auto;
-  margin-left: 10%;
-}
-*/
-
-/*.profile, .post-bike {
-  overflow: auto;
-  margin-left: 10%;
-}*/
-
-/*.post-bike {
-  background-color: #eee;
-  overflow: auto;
-}*/
 
 .new-post-form {
   float: left;
@@ -313,9 +285,12 @@ input[type="submit"] {
 .bike-posts {
   position: relative;
   display: inline-block;
-  min-height: 80px;
-  overflow: auto;
+/*  max-width: 15%;
+  min-width: 15%;*/
+  height: 80px;
+  overflow-y: scroll;
   padding: 5px;
+  margin: 5px 0 0 5px;
   background: #eee;
   border-left: 5px solid rgba(87, 138, 7, 1);
   color: #555;
@@ -334,6 +309,11 @@ input[type="submit"] {
 
 .bike-posts p {
   font-size: .8em;
+  width: 90%;
+}
+
+.bike-posts p:last-child {
+  width: 100%;
 }
 
 .favorite-bike {
@@ -346,48 +326,96 @@ input[type="submit"] {
   color: red;
 }
 
+.fav-holder {
+  /*position: relative;*/
+  padding: 5px;
+}
+
 .fav-bike-icon {
-  width: 70px;
+  position: relative;
+  width: 40px;
   /*width: 20%;*/
-  height: 70px;
-  /*margin: 5px;*/
+  height: 40px;
+  margin: 0 10px 0 0;
   padding: 5px;
   /*background-image: url('../images/ss_bike.svg');*/
   background-color: #333;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 50% 0 50% 50%;
+  float: left;
 }
 
-.fav-bike-icon p:first-child {
-  margin-top: 8px;
-  font-size: .7em;
+.fav-bike-icon p:nth-child(2) {
+  margin-top: 3px;
+  font-size: .65em;
   text-align: center;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
 }
 
 .fav-bike-icon p:last-child {
-  font-size: 2.5em;
+  font-size: 1.4em;
   text-align: center;
   color: rgba(255,255,255,0.5);
 }
 
-/*.bikes-for-sale, .profile, .current-user, .favorites {
-  width: 60%;
-  min-height: 300px;
-  margin-left: 10%
+.favorites:after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
 }
+
+.close-me-fav {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  font-size: .7em;
+  color: rgba(255,255,255, 0.5);
+}
+
+.close-me-fav:hover {
+  color: rgba(255,255,255, 1);
+}
+
+.close-me-fav:active {
+  color: rgba(255,255,255, 0.7);
+}
+
+
+.current-user, .favorites {
+  margin-top: 40px;
+}
+
+.current-user h4, .favorites h4 {
+  margin-bottom: 10px;
+}
+
+
+.bikes-for-sale {
+  position: relative;
+/*  min-height: 300px;*/
+  padding: 20px;
+}
+
 
 .bikes-for-sale:after {
   content: '';
   clear: both;
-}*/
+}
+
+
+.bikes-for-sale h4 {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
 
 /*.profile, .current-user, .favorites {
   width: 60%;
   min-height: 300px;
   margin-left: 10%
-}*/
+}
 
 /*.bikes-for-sale:after {
   content: '';
@@ -441,8 +469,13 @@ input[type="submit"] {
   background-color: #CE2701;
 }
 
+.usr-posts p {
+  width: 80%;
+}
+
+
 .usr-favs {
-  border-left: 5px solid #8D449E;
+  background-color: #8D449E;
 }
 
 .usr-favs:hover {
@@ -548,18 +581,12 @@ label {
 }
 
 
-.bike-list-scheme, .curr-user-scheme, .user-fav-scheme, .user-list-scheme {
+.bike-list-scheme, .user-fav-scheme, .user-list-scheme {
 /*  max-height: 100vh;*/
 /*  padding: 120px 0;*/
   background-color: rgba(50,50,50, 1);
   color: #fff;
-}
-
-
-.register-scheme div, .login-scheme div, .bike-list-scheme div {
-  /*margin: 0px auto;*/
-  /*padding: 0;*/
-  /*border: 1px solid white;*/
+  overflow: hidden;
 }
 
 
@@ -598,7 +625,7 @@ label {
   /*top: 60;
   right: 0;*/
   /*width: 25%;*/
-  overflow: auto;
+/*  overflow: auto;*/
 }
 
 .sidebar {
@@ -640,6 +667,7 @@ label {
   top: 60px;
   right: 0;
   z-index: 200;
+  color: #fff;
 }
 
 
@@ -660,10 +688,10 @@ label {
 
 
 .bike-list-scheme {
-  position: absolute;
-  top: 60px;
+  position: relative;
+  top: -35px;
   left: 0;
-  z-index: 500;
+/*  z-index: 500;*/
 }
 
 .register-scheme {
