@@ -5,12 +5,57 @@ var user = {
   token: null
 };
 
+var registerSubmit = $('#register');
+var loginSubmit = $('#login');
+var registerMenu = $('.register-scheme');
+var loginMenu = $('.login-scheme');
+var closeMe = $('.close-me');
+var closeMeCreate = $('.close-me-create');
+var messagesContainer = $('.messages-container');
+
 
 //$(document).ready(...
 $(function() {
 
+  // menu transition click handlers
+
+  // animate on register/login containers
+  $('.register-a').on('click', function() {
+    registerMenu.fadeIn().removeClass('hidden');
+  });
+
+  $('.login-a').on('click', function() {
+    loginMenu.fadeIn().removeClass('hidden');
+  });
+
+  $('.register-a2').on('click', function() {
+    loginMenu.slideUp(300);
+    registerMenu.delay(600).slideDown(300).removeClass('hidden');
+  });
+
+  $('.login-a2').on('click', function() {
+    registerMenu.slideUp(300);
+    loginMenu.delay(600).slideDown(300).removeClass('hidden');
+  });
+
+
+  // click hander for closing windows
+  closeMe.on('click', function(){
+    $(this).closest('section').fadeOut();
+  });
+
+    // click hander for closing windows
+  closeMeCreate.on('click', function(){
+    $(this).closest('section').fadeOut();
+    addRev.fadeIn(300);
+  });
+
+
   // list all bikes for sale
   ssme_api.listAllBikes(listAllBikesCb);
+
+  // // list all favorite bikes
+  // ssme_api.listAllFavBikes(listAllFavBikesCb);
 
   // register event handler
   $('#register').on('submit', function(e) {
