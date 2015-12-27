@@ -6,100 +6,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sillyspeed Me - One-gear. Fun.</title>
   <link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
 
 <body>
-  <header id="header" class="">
+  <header>
+
     <div class="brand">
       <h1>SillySpeed Me</h1>
-    </div>
-  </header><!-- /header -->
-
-  <div class="logins-messages-creators">
-    <!--  <nav>
-      <ul class="top-nav">
-        <li id ="register-button" class="top-nav-register">Register</li>
-        <li id="login-button" class="top-nav-login">Log In</li>
-      </ul>
-    </nav> -->
-
-    <div class="reg-login API-register">
-      <h6>Register</h6>
-      <form id="register">
-        <input name="email" type="text" placeholder="email">
-        <input name="password" type="password" placeholder="password">
-        <input name="password_confirmation" type="password" placeholder="password confirmation">
-        <input name="register" type="submit" value="Register" class="top-reg-button">
-      </form>
-    </div><!-- end register -->
-
-    <div class="reg-login API-login">
-      <h6>Login</h6>
-      <form id="login">
-        <input name="email" type="text" placeholder="email">
-        <input name="password" type="password" placeholder="password">
-        <input name="login" type="submit" value="Login" class="top-login-button">
-      </form>
-    </div><!-- end login -->
-
-
-
-    <!-- user messages -->
-    <div class="messages-container">
-      <h4 class="user-messages">messages here</h4>
+      <nav class="span_3_of_12">
+        <ul class="top-nav">
+          <li id ="register-button" class="top-nav-register">Register</li>
+          <li id="login-button" class="top-nav-login">Log In</li>
+          <li id="list-bike-button" class="list-a-bike">List a Bike</li>
+        </ul>
+      </nav>
     </div>
 
-  </div>
-
-  <section id="banner">
-    <h2>SillySpeed Me!</h2>
-    <h4>one-geared fun.</h4>
-    <p>[Register and Log in to list a bike]</p>
-  </section>
-
+  </header>
+  <!-- /header -->
   <!-- begin wrapper -->
-  <div class="wrapper">
+  <div class="wrapper .flexbox-stretch-vertical">
 
     <!-- begin container -->
-    <div class="container">
+<!--     <div class="container"> -->
+      <section id="banner" class="span_12_of_12">
+        <h2>SillySpeed Me!</h2>
+        <h4>one-geared fun.</h4>
+        <p>[<a class="register-a">Register</a> and <a class="login-a">Log in</a> to list a bike]</p>
+      </section>
 
+
+
+      <section class="span_12_of_12 register-scheme hidden">
+        <div class="span_4_of_12 reg-login">
+          <p class="close-me"><i class="fa fa-times"></i></p>
+          <h3>Sign up</h3>
+          <form id="register">
+            <input name="email" type="text" placeholder="email">
+            <input name="password" type="password" placeholder="password">
+            <input name="password_confirmation" type="password" placeholder="password confirmation">
+            <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
+            <button type="" class="">Submit</button>
+          </form>
+          <p>Already signed up? <a class="login-a2">Sign in</a>.</p>
+        </div>
+      </section>
+
+      <!-- end register -->
+
+      <section class="span_12_of_12 login-scheme hidden">
+        <div class="span_4_of_12 reg-login">
+          <p class="close-me"><i class="fa fa-times"></i></p>
+          <h3>Sign in</h3>
+          <form id="login">
+            <input name="email" type="text" placeholder="email">
+            <input name="password" type="password" placeholder="password">
+            <!-- <input name="login" type="submit" value="Login" class="top-login-button"> -->
+            <button type="" class="">Submit</button>
+          </form>
+          <p>Need an account? <a class="register-a2">Register</a>.</p>
+        </div>
+      </section>
+
+      <!-- end login -->
+
+
+
+      <!-- user messages -->
+      <div class="messages-container">
+        <h4 class="user-messages">messages here</h4>
+      </div>
+
+
+
+      <section id="profile" class="curr-user-scheme span_3_of_12">
+
+        <div class="favorites">
+          <h4>Your favorite bikes</h4>
+
+          <div id="user-favorite-bikes">
+          <!-- dynamic content -->
+          </div>
+
+        </div>
+
+        <div class="current-user">
+          <h4>Your bikes for sale</h4>
+
+          <div id="user-bikes">
+          <!-- dynamic content -->
+          </div>
+        </div>
+
+
+      </section><!-- end profile -->
 
 
       <!-- all bikes -->
-    <div class="main">
-      <div class="bikes-for-sale">
-        <h4>All bikes for sale</h4>
+      <section class="bike-list-scheme span_3_of_12">
+        <div class="bikes-for-sale">
+          <h4>All bikes for sale</h4>
 
-        <div id="all-bikes">
-          <!-- dynamic content -->
-        </div>
+          <div id="all-bikes" class="span_12_of_12">
+            <!-- dynamic content -->
+          </div>
 
-      </div><!-- end bikes-for-sale -->
-    </div>
+        </div><!-- end bikes-for-sale -->
+      </section>
+
+
+
 
     <div class="secondary"><!-- current user -->
-          <div id="profile left">
 
-            <div class="current-user">
-              <h4>Your bikes for sale</h4>
-
-              <div id="user-bikes">
-              <!-- dynamic content -->
-              </div>
-            </div>
-
-            <div class="favorites left">
-                <h4>Your favorite bikes</h4>
-
-                <div id="user-favorite-bikes">
-                <!-- dynamic content -->
-                </div>
-
-            </div>
-
-
-          </div><!-- end profile -->
 
           <div name="list-a-bike left">
 
@@ -139,7 +161,7 @@
 
         </div>
       </div>
-  </div>
+<!--   </div> -->
    <!-- end container -->
 
 </div>
