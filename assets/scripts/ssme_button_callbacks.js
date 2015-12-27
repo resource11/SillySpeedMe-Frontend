@@ -29,15 +29,19 @@ var removeBikes = function(data, location1, location2) {
 };
 
 var listBikeHTML = function (bike) {
-  allBikesList.append('<div id=' + bike.id + '><div class="bike-icon col span_4_of_12"><p>bike:</p><p>' + bike.id + '</p></div><div class="bike-posts col span_8_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><p class="favorite-bike"><i class="fa fa-heart-o"></i></p></div></div>');
+  allBikesList.append('<div id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
 };
 
 var listUserBikeHTML = function(bike) {
   userBikesList.append('<div id=' + bike.id + ' class="bike-posts usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike"><i class="fa fa-trash"></i></button></div>');
  };
 
+// var listFavBikeHTML = function(favBike) {
+//   userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs span_12_of_12"><div class="fav-bike-icon"><p class="close-me"><i class="fa fa-times"></i></p><p>bike:</p><p>' + favBike.bike_id + '</p></div><h6> Favorite bike id ' + favBike.id + '</h6><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove Favorite</button></div>');
+//  };
+
 var listFavBikeHTML = function(favBike) {
-  userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs span_12_of_12"><div class="fav-bike-icon"><p>bike:</p><p>' + favBike.bike_id + '</p></div><h6> Favorite bike id ' + favBike.id + '</h6><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove Favorite</button></div>');
+  userFavoriteList.append('<div id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike:</p><p>' + favBike.bike_id + '</p></div>');
  };
 
 // create object from form data
