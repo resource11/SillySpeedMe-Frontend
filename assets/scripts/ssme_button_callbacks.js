@@ -29,11 +29,11 @@ var removeBikes = function(data, location1, location2) {
 };
 
 var listBikeHTML = function (bike) {
-  allBikesList.append('<div id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
+  allBikesList.append('<div data-bike-id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
 };
 
 var listUserBikeHTML = function(bike) {
-  userBikesList.append('<div id=' + bike.id + ' class="bike-posts usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p> user id: '+ bike.user_id +'</p><button class="delete-bike"><i class="fa fa-trash"></i></button></div>');
+  userBikesList.append('<div data-bike-id=' + bike.id + ' class="usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-trash delete-bike"></i></div>');
  };
 
 // var listFavBikeHTML = function(favBike) {
@@ -41,7 +41,7 @@ var listUserBikeHTML = function(bike) {
 //  };
 
 var listFavBikeHTML = function(favBike) {
-  userFavoriteList.append('<div id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike:</p><p>' + favBike.bike_id + '</p></div>');
+  userFavoriteList.append('<div data-fav-bike-id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike</p><p>' + favBike.bike_id + '</p></div>');
  };
 
 // create object from form data
