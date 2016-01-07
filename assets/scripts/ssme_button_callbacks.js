@@ -246,7 +246,7 @@ var favoriteBikeCb = function (error, data) {
   // console.log test
  console.log('favorite bike data is ' + data);
 
-  var favBike = data.favorite_bikes;
+  var favBike = data.favorite_bike;
   listFavBikeHTML(favBike);
 };
 // end of favoriteBike submit handler
@@ -258,12 +258,6 @@ var updateFavBikeCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Unfavorite fail!</strong>");
     return;
   }
-  // console.log test
-  // console.log('favorite bike favorite is ' + data);
-
-  // var favBike = data.favorite_bike;
-
-  // console.log('favorite status is' + favBike.id);
 
   $(".user-messages").html("<strong>Favorite removed!</strong>");
 
