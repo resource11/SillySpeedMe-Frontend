@@ -32,8 +32,10 @@ var listBikeHTML = function (bike) {
   allBikesList.prepend('<div data-bike-id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
 };
 
+
+
 var listUserBikeHTML = function(bike) {
-  userBikesList.append('<div data-bike-id=' + bike.id + ' class="usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-trash delete-bike"></i></div>');
+  userBikesList.prepend('<div data-bike-id=' + bike.id + ' class="usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-trash delete-bike"></i></div>');
  };
 
 // var listFavBikeHTML = function(favBike) {
@@ -186,7 +188,9 @@ var createBikeCb = function (error, data) {
   var bike = data.bike;
   listBikeHTML(bike);
   listUserBikeHTML(bike);
-  $('.user-messages').text('New bike ' + bike.id + ' created by user ' + data.user.id);
+  console.log("bike id is: " + data.bike.id );
+  console.log("data is: " + JSON.stringify(data));
+  $('.user-messages').text('New bike ' + data.bike.id + ' created by user ' + data.bike.user_id);
 
 };
 // end of createBike submit handler
@@ -242,7 +246,7 @@ var favoriteBikeCb = function (error, data) {
   // console.log test
  console.log('favorite bike data is ' + data);
 
-  var favBike = data.favorite_bike;
+  var favBike = data.favorite_bikes;
   listFavBikeHTML(favBike);
 };
 // end of favoriteBike submit handler
@@ -251,15 +255,15 @@ var favoriteBikeCb = function (error, data) {
 var updateFavBikeCb = function (error, data) {
   if (error) {
     console.error(error);
-    $(".user-messages").html("<strong>Error! Bike favorite fail!</strong>");
+    $(".user-messages").html("<strong>Error! Unfavorite fail!</strong>");
     return;
   }
   // console.log test
-  console.log('favorite bike favorite is ' + data);
+  // console.log('favorite bike favorite is ' + data);
 
-  var favBike = data.favorite_bike;
+  // var favBike = data.favorite_bike;
 
-  console.log('favorite status is' + favBike.id);
+  // console.log('favorite status is' + favBike.id);
 
   $(".user-messages").html("<strong>Favorite removed!</strong>");
 

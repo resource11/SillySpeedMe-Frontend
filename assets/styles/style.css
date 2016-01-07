@@ -525,11 +525,6 @@ nav ul li {
   font-size: 1.25em;
 }
 
-.new-post-form {
-  float: left;
-}
-
-
 
 
 
@@ -622,7 +617,7 @@ label {
   /*background-color: #eee;*/
 }
 
-.reg-login {
+.reg-login, .list-new-bike {
   margin: 0 auto;
 }
 
@@ -633,7 +628,7 @@ label {
 
 
 
-.register-scheme, .login-scheme {
+.register-scheme, .login-scheme, .list-bike-scheme {
   /*max-height: 250vh;*/
   padding: 180px 0 0;
   height: 100%;
@@ -651,7 +646,7 @@ label {
 }
 
 
-.register-scheme h3, .login-scheme h3, .bike-listings-scheme h3, .edit-scheme h3 {
+.register-scheme h3, .login-scheme h3, .bike-listings-scheme h3, .edit-scheme h3, .list-bike-scheme h3 {
   margin: 0px auto 20px;
   padding: 0;
   /*text-align: center;*/
@@ -660,7 +655,7 @@ label {
 }
 
 
-.register-scheme button, .login-scheme button, .bike-listings-scheme button {
+.register-scheme button, .login-scheme button, .bike-listings-scheme button, .list-bike-scheme button {
   width: 100%;
   /*margin-top: 20px;*/
   text-align: center;
@@ -775,6 +770,13 @@ label {
   left: 0;
   border-top: 5px solid #222;
 /*  z-index: 500;*/
+}
+
+.list-bike-scheme {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 600;
 }
 
 .register-scheme {
