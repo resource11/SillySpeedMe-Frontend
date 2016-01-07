@@ -139,15 +139,18 @@ var ssme_api = {
     }, callback);
   },
 
-  updateFavBike: function (id, data, token, callback) {
+  // updateFavBike: function (id, data, token, callback) {
+   updateFavBike: function (id, token, callback) {
     this.ajax({
-      method: 'PATCH',
+      // method: 'PATCH',
+      method: 'DELETE',
       url: this.url + '/favorite_bikes/' + id,
       headers: {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(data),
+      // data: JSON.stringify(data),
+      data: JSON.stringify(id),
       dataType: 'json'
     }, callback);
   },

@@ -9,6 +9,7 @@ var registerSubmit = $('#register');
 var loginSubmit = $('#login');
 var registerMenu = $('.register-scheme');
 var loginMenu = $('.login-scheme');
+var listBikeMenu = $('.list-bike-scheme');
 var closeMe = $('.close-me');
 var closeMeCreate = $('.close-me-create');
 var messagesContainer = $('.messages-container');
@@ -29,7 +30,7 @@ $(function() {
     $(this).closest('i').addClass('fa-heart-o');
   });
 
-  // animate on register/login containers
+  // animate on register/login/list bike containers
   $('.register-a').on('click', function() {
     registerMenu.fadeIn().removeClass('hidden');
   });
@@ -46,6 +47,10 @@ $(function() {
   $('.login-a2').on('click', function() {
     registerMenu.slideUp(300);
     loginMenu.delay(600).slideDown(300).removeClass('hidden');
+  });
+
+  $('.list-a-bike').on('click', function() {
+    listBikeMenu.fadeIn().removeClass('hidden');
   });
 
 
@@ -103,39 +108,68 @@ $(function() {
 
     ssme_api.createBike(session.token, data, createBikeCb);
     e.preventDefault();
+    listBikeMenu.fadeOut(300);
   });
 
 
 
   // favorite a bike handler
-  $('#favorite_bike').on('submit', function(e) {
-    var data = wrap('favorite_bike', form2object(this));
+  // $('#favorite_bike').on('submit', function(e) {
+    $('#all-bikes').on('click', '.favorite-bike', function() {
+    // var data = wrap('favorite_bike', form2object(this));
+
+    console.log('clicked');
+    var favThisBike = $(this).closest('.bike-posts').data('bike-id');
+    console.log('favbikeid is: ' + favThisBike);
+
+    var data = {
+      favorite_bike: {
+        favorite: true,
+        user_id: session.userId,
+        bike_id: favThisBike
+      }
+    }
+
 
     // test to see if the session.token is recognized
     console.log(session.token);
+
+    console.log('user id is: ' + session.userId);
+
+    console.log('the bike id is: ' + data.favorite_bike.bike_id);
 
     // test to see if bike was created from wrap function
     console.log(data.favorite_bike);
 
     ssme_api.favoriteBike(data, session.token, favoriteBikeCb);
-    e.preventDefault();
+    // e.preventDefault();
   });
 
 
   // NEW updateFavBike a bike handler
-  $('#update_favorite').on('submit', function(e) {
-    var data = wrap('favorite_bike', form2object(this));
+  // $('#update_favorite').on('submit', function(e) {
+  $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
+    // var data = wrap('favorite_bike', form2object(this));
     console.log("clicked");
-    // test to see if the data was wrapped
-    console.log(data.favorite_bike);
 
-    console.log(data.favorite_bike.id);
-    var id = data.favorite_bike.id;
+    // find the bike_id attached to the div
+    var favBikeId = $(this).closest('.usr-favs').data('fav-bike-id');
+    // test to see if the data was wrapped
+    // console.log(data.favorite_bike);
+    console.log('fav bike id to remove is: ' + favBikeId);;
+
+    // console.log(data.favorite_bike.id);
+    // var id = data.favorite_bike.id;
+    // var id = favBikeId;
     // test to see if the session.token is recognized
     console.log(session.token);
 
-    ssme_api.updateFavBike(id, data, session.token, updateFavBikeCb);
-    e.preventDefault();
+    // ssme_api.updateFavBike(id, data, session.token, updateFavBikeCb);
+    ssme_api.updateFavBike(favBikeId, session.token, updateFavBikeCb);
+    // e.preventDefault();
+
+    // update the bike list in the viewport
+    $(this).closest('.usr-favs').remove();
   });
 
 
@@ -158,12 +192,14 @@ $(function() {
     ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
     // update the bike list in the viewport
-    // $(this).closest('.bike-posts').remove();
+    $(this).closest('.usr-posts').remove();
 
 
-    // find bike in all bikes listing and remove
-    // still debugging this
-    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
+    // var findThisBike = '[data-bikeid="' + thisBikeId+ '"]';
+    // // find bike in all bikes listing and remove
+    // // still debugging this
+    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(findThisBike);
+    // console.log('this found bike id is: ' + thisBikeInAllBikes);
     // thisBikeInAllBikes.remove();
 
   });
