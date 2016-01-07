@@ -29,7 +29,7 @@ var removeBikes = function(data, location1, location2) {
 };
 
 var listBikeHTML = function (bike) {
-  allBikesList.append('<div data-bike-id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
+  allBikesList.prepend('<div data-bike-id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
 };
 
 var listUserBikeHTML = function(bike) {
@@ -84,6 +84,7 @@ var regCb = function (error, data) {
     return;
   }
   console.log(JSON.stringify(data, null, 4));
+    messagesContainer.fadeIn().removeClass('hidden');
     $('.user-messages').text('Welcome,  new user #' + data.user.id);
 };
 
@@ -100,6 +101,7 @@ var loginCb = function (error, data) {
   // assign current_user.id and session.token
   session.userId = data.user.id;
   session.token = data.user.token;
+  messagesContainer.fadeIn().removeClass('hidden');
   $('.user-messages').text('Welcome, user #' + session.userId);
 
   // show in console for testing purposes

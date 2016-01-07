@@ -98,7 +98,7 @@ $(function() {
   // handlers requiring authentication
 
   // create new bike handler
-  $('#bike').on('submit', function(e) {
+  $('#create-bike').on('submit', function(e) {
     var data = wrap('bike', form2object(this));
 
     ssme_api.createBike(session.token, data, createBikeCb);
@@ -146,7 +146,7 @@ $(function() {
     console.log("clicked");
 
     // find the bike_id attached to the div
-    var thisBikeId = $(this).closest('.bike-posts').attr('id');
+    var thisBikeId = $(this).closest('.usr-posts').data('bike-id');
 
     // confirmation the bike_id was captured
     console.log(thisBikeId);
@@ -158,13 +158,13 @@ $(function() {
     ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
     // update the bike list in the viewport
-    $(this).closest('.bike-posts').remove();
+    // $(this).closest('.bike-posts').remove();
 
 
     // find bike in all bikes listing and remove
     // still debugging this
-    var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
-    thisBikeInAllBikes.remove();
+    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(thisBikeId)
+    // thisBikeInAllBikes.remove();
 
   });
 
