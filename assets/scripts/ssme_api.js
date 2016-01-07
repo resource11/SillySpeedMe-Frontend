@@ -4,7 +4,8 @@
 
 var ssme_api = {
   bikeWatcher: null,
-  url: 'https://mighty-lowlands-8515.herokuapp.com',
+  // url: 'https://mighty-lowlands-8515.herokuapp.com',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {

@@ -15,6 +15,9 @@ body {
 
 }
 
+
+
+
 /* Custom CSS */
 
 .wrapper{
@@ -32,6 +35,8 @@ header{
   /*overflow: auto;
   color: #fff;*/
 }
+
+
 
 
 /* H1-H6 */
@@ -74,6 +79,7 @@ h4 {
 h5 {
   font-size: 1.25em;
   font-weight: 900;
+  text-shadow: 1px 2px 2px rgba(0,0,0,0.5);
 }
 
 h6 {
@@ -83,12 +89,11 @@ h6 {
 
 
 
-/*NAVIGATION*/
+
+/* NAVIGATION & BRAND */
 
 nav {
   position: relative;
-/*  width: 80%;*/
-/*  margin: 0 auto;*/
   float: right;
 }
 
@@ -98,17 +103,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-/*  line-height: 40px;*/
 }
-
-/*nav ul li a{
-  color: #333;
-  text-decoration: none;
-}
-
-nav ul li a:hover{
-  border-bottom: 1px solid #333;
-}*/
 
 
 
@@ -155,23 +150,15 @@ nav ul li a:hover{
   background-color: rgba(170,21,5,1);
 }
 
-/*.list-a-bike {
-  background-color: rgba(87, 138, 7, 1);
-  border-radius: 15px;
-}
-
-.list-a-bike:hover {
-  background-color: rgba(170,21,5,1);
-}
-
-.list-a-bike:active {
-  background-color: 3px solid rgba(170,21,5,.5);
-}*/
-
 .profile-nav:after {
   content: " ";
   clear: both;
 }
+
+
+
+
+/* HERO SECTION */
 
 #banner {
   position: relative;
@@ -209,88 +196,92 @@ nav ul li a:hover{
 
 
 
-
-/*img{max-width: 100%;}
-
-p{margin: 0 0 10px 0; line-height: 1;}
-
-input{
-      width: 100%;
-      border:0;
-      padding:10px;
-      margin: 2px auto;
-      font-size:.8em;
-      display: block;
-      color: #444;
-    }
-input[type="submit"] {
-  background: #CE2701;
-  color:white;
-}*/
-
-
-#register, #login, .new-bike-posting {
-  width: 90%;
-  overflow: auto;
-  /*background-color: #eee;*/
-}
-
-.user-messages {
-  color: #fff;
-}
-
-.reg-login  h6{
-  color: #fff;
-  padding: 10px 0 5px;
-}
-
-.reg-login {
-  margin: 0 auto;
-}
+/* REGISTER LOGIN BUTTONS */
 
 .register-a, .login-a {
   font-weight: 700;
-}
-
-.container{
-  max-width: 100%;
-  margin: 0 auto 40px;
-  overflow: auto;
 }
 
 .list-a-bike {
   margin-right: 10%;
 }
 
-.new-post-form {
-  float: left;
+
+/*.list-a-bike {
+  background-color: rgba(87, 138, 7, 1);
+  border-radius: 15px;
 }
 
-.bike-icon {
-  /*width: 70px;*/
-  width: 20%;
-  height: 70px;
-  /*margin: 5px;*/
-  padding: 5px;
-  /*background-image: url('../images/ss_bike.svg');*/
-  background-color: #eee;
-  display: inline-block;
-  border-radius: 50%;
+.list-a-bike:hover {
+  background-color: rgba(170,21,5,1);
 }
 
-.bike-icon p:first-child {
-  margin-top: 8px;
-  font-size: .7em;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+.list-a-bike:active {
+  background-color: 3px solid rgba(170,21,5,.5);
+}*/
+
+
+
+
+
+
+/* MESSAGES */
+
+.messages-container {
+  top: 60px;
+  left: 0px;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
 }
 
-.bike-icon p:last-child {
-  font-size: 2.5em;
-  text-align: center;
-  color: rgba(255,255,255,0.5);
+/*.container {
+  align-items: flex-start | flex-end | center | baseline | stretch;
+}*/
+
+.messages-container h5 {
+  margin-left: 15%;
+  margin-bottom: 5px;
+  font-family: 'Lobster', cursive;
+  color: #fff;
 }
+
+.user-messages {
+  /*margin-left: 0;*/
+  margin: auto;
+  /*width: 200px;*/
+  height: 80px;
+  padding-left: 15%;
+  color: #fff;
+  background-color: rgba(87, 138, 7, .8);
+}
+
+
+
+
+
+/* ALL BIKES FOR SALE */
+
+.bikes-for-sale {
+  position: relative;
+/*  min-height: 300px;*/
+  padding: 20px;
+}
+
+
+.bikes-for-sale:after {
+  content: '';
+  clear: both;
+}
+
+
+.bikes-for-sale h4 {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+
 
 .bike-posts {
   position: relative;
@@ -330,10 +321,10 @@ input[type="submit"] {
   width: 100%;
 }
 
-/*.bike-posts p:hover, .bike-posts p:active {
-  color: #fff;
-}
-*/
+
+
+
+/* FAVORITE A BIKE */
 
 
 .favorite-bike {
@@ -342,22 +333,85 @@ input[type="submit"] {
   right: 10px;
 }
 
-.delete-bike {
-  position: absolute;
-  bottom: 10px;
-  right: 40px;
-}
-
 .favorite-bike:hover {
   color: #fff;
 }
 
 
 
-.fav-holder {
-  /*position: relative;*/
+
+
+
+/* BIKE ICON */
+
+.bike-icon {
+  /*width: 70px;*/
+  width: 20%;
+  height: 70px;
+  /*margin: 5px;*/
   padding: 5px;
+  /*background-image: url('../images/ss_bike.svg');*/
+  background-color: #eee;
+  display: inline-block;
+  border-radius: 50%;
 }
+
+.bike-icon p:first-child {
+  margin-top: 8px;
+  font-size: .7em;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.bike-icon p:last-child {
+  font-size: 2.5em;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+}
+
+
+
+
+
+
+/* CURRENT USER SIDEMENU */
+
+.current-user, .favorites {
+  margin-top: 20px;
+}
+
+.current-user h4, .favorites h4 {
+  margin-bottom: 10px;
+}
+
+
+
+
+/* USER FAVORITES LISTINGS */
+
+.favorites {
+  overflow: auto;
+}
+
+.favorites:after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+
+
+.usr-favs {
+  background-color: #95CE00;
+}
+
+.usr-favs:hover {
+  background-color: #C1CE00;
+}
+
+
 
 .fav-bike-icon {
   position: relative;
@@ -387,6 +441,8 @@ input[type="submit"] {
   color: rgba(255,255,255,1);
 }
 
+
+
 .close-me-fav {
   position: absolute;
   top: 0px;
@@ -404,87 +460,11 @@ input[type="submit"] {
 }
 
 
-.current-user, .favorites {
-  margin-top: 20px;
-}
-
-.current-user h4, .favorites h4 {
-  margin-bottom: 10px;
-}
 
 
-.bikes-for-sale {
-  position: relative;
-/*  min-height: 300px;*/
-  padding: 20px;
-}
 
 
-.bikes-for-sale:after {
-  content: '';
-  clear: both;
-}
-
-
-.bikes-for-sale h4 {
-  margin-top: -5px;
-  margin-bottom: 5px;
-}
-
-/*.profile, .current-user, .favorites {
-  width: 60%;
-  min-height: 300px;
-  margin-left: 10%
-}
-
-/*.bikes-for-sale:after {
-  content: '';
-  clear: both;
-}*/
-
-/*.current-user {
-  width: 63.4%;
-  min-height: 300px;
-}*/
-
-.favorites {
-  overflow: auto;
-}
-
-.favorites:after {
-  content: '';
-  clear: both;
-  display: block;
-  visibility: hidden;
-  height: 0;
-}
-
-
-.messages-container {
-  width: 290px;
-  height: 200px;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(87, 138, 7, .8);
-  overflow: auto;
-}
-
-/*.current-user, .favorites {
-  padding: 10px;
-}*/
-
-.favorite-menus {
-  padding: 10px;
-  margin: 10px;
-  background-color: rgba(0, 0, 0, .4);
-  overflow: auto;
-}
-
-.favorite-menus  h4 {
-  color: #fff;
-  padding-top: 15px;
-  font-size: 1.25em;
-}
+/* USER BIKE POSTS - BIKE LISTINGS */
 
 .usr-posts {
   position: relative;
@@ -515,31 +495,45 @@ input[type="submit"] {
   width: 80%;
 }
 
-
-.usr-favs {
-  background-color: #95CE00;
-}
-
-.usr-favs:hover {
-  background-color: #C1CE00;
+.delete-bike {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
 }
 
 
-.left {
+
+
+
+
+
+
+
+
+/* FAVORITE INPUT MENUS */
+
+.favorite-menus {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, .4);
+  overflow: auto;
+}
+
+.favorite-menus  h4 {
+  color: #fff;
+  padding-top: 15px;
+  font-size: 1.25em;
+}
+
+.new-post-form {
   float: left;
 }
 
-.right {
-  float: right;
-}
-
-.clear {
-  clear: both;
-}
 
 
 
-/* buttons and inputs */
+
+/* BUTTONS AND INPUTS */
 
 button {
   border: 2px solid white;
@@ -594,7 +588,8 @@ label {
 
 
 
-/* form sections */
+
+/* FORM BUTTONS */
 
 .close-me, .close-me-create {
   position: absolute;
@@ -614,6 +609,30 @@ label {
 
 
 
+
+
+
+
+/* FULL WINDOW MENUS */
+
+
+#register, #login, #create-bike{
+  width: 90%;
+  overflow: auto;
+  /*background-color: #eee;*/
+}
+
+.reg-login {
+  margin: 0 auto;
+}
+
+/*.reg-login  h6{
+  color: #fff;
+  padding: 10px 0 5px;
+}*/
+
+
+
 .register-scheme, .login-scheme {
   /*max-height: 250vh;*/
   padding: 180px 0 0;
@@ -623,7 +642,7 @@ label {
 }
 
 
-.bike-list-scheme, .user-fav-scheme, .user-list-scheme {
+.bike-listings-scheme, .user-fav-scheme, .user-list-scheme {
 /*  max-height: 100vh;*/
 /*  padding: 120px 0;*/
   background-color: rgba(50,50,50, 1);
@@ -632,7 +651,7 @@ label {
 }
 
 
-.register-scheme h3, .login-scheme h3, .bike-list-scheme h3, .edit-scheme h3 {
+.register-scheme h3, .login-scheme h3, .bike-listings-scheme h3, .edit-scheme h3 {
   margin: 0px auto 20px;
   padding: 0;
   /*text-align: center;*/
@@ -641,7 +660,7 @@ label {
 }
 
 
-.register-scheme button, .login-scheme button, .bike-list-scheme button {
+.register-scheme button, .login-scheme button, .bike-listings-scheme button {
   width: 100%;
   /*margin-top: 20px;*/
   text-align: center;
@@ -662,7 +681,7 @@ label {
 }
 
 
-.bike-list-scheme, .curr-user-scheme, .user-fav-scheme, .user-list-scheme {
+.bike-listings-scheme, .curr-user-scheme, .user-fav-scheme, .user-list-scheme {
   /*padding: 20px 0;*/
   /*top: 60;
   right: 0;*/
@@ -670,10 +689,30 @@ label {
 /*  overflow: auto;*/
 }
 
-.sidebar {
+/*.sidebar {
   position: relative;
+}*/
+
+
+
+
+
+/* MISC LAYOUT */
+
+
+.container{
+  max-width: 100%;
+  margin: 0 auto 40px;
+  overflow: auto;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
 
 .clearfix {
   content: '';
@@ -687,12 +726,10 @@ label {
   display: none;
 }
 
-.left {
-  float: left;
-}
 
 
-/* z-index structure */
+
+/* Z-INDEX STRUCTURE */
 
 #banner {
   z-index: 1;
@@ -732,7 +769,7 @@ label {
 }
 
 
-.bike-list-scheme {
+.bike-listings-scheme {
   position: relative;
   top: 0px;
   left: 0;
@@ -758,6 +795,24 @@ label {
 header {
   z-index: 1000;
 }
+
+
+
+
+/* FLEXBOX STRUCTURE */
+
+.flexbox-align-center {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+}
+
 
 .flexbox-stretch-vertical {
   display: -ms-flexbox;
