@@ -21,13 +21,16 @@ $(function() {
   // menu transition click handlers
 
   $('#all-bikes').on('mouseenter', '.favorite-bike', function() {
-    $(this).closest('i').removeClass('fa-heart-o');
-    $(this).closest('i').addClass('fa-heart');
+    $(this).closest('i').addClass('select-cursor');
   });
 
     $('#all-bikes').on('mouseleave', '.favorite-bike', function() {
-    $(this).closest('i').removeClass('fa-heart');
-    $(this).closest('i').addClass('fa-heart-o');
+    $(this).closest('i').removeClass('select-cursor');
+  });
+
+  $('#all-bikes').on('click', '.favorite-bike', function() {
+    $(this).closest('i').removeClass('fa-heart-o');
+    $(this).closest('i').addClass('fa-heart');
   });
 
   // animate on register/login/list bike containers
@@ -158,15 +161,19 @@ $(function() {
     // console.log(data.favorite_bike);
     console.log('fav bike id to remove is: ' + favBikeId);;
 
-    // console.log(data.favorite_bike.id);
-    // var id = data.favorite_bike.id;
-    // var id = favBikeId;
+    var data = {
+      favorite_bike: {
+        id: favBikeId,
+        favorite: false
+      }
+    };
+
+
     // test to see if the session.token is recognized
     console.log(session.token);
+    console.log('data sent is: ' + JSON.stringify(data));
 
-    // ssme_api.updateFavBike(id, data, session.token, updateFavBikeCb);
-    ssme_api.updateFavBike(favBikeId, session.token, updateFavBikeCb);
-    // e.preventDefault();
+    ssme_api.updateFavBike(favBikeId, data, session.token, updateFavBikeCb);
 
     // update the bike list in the viewport
     $(this).closest('.usr-favs').remove();
@@ -195,7 +202,7 @@ $(function() {
     $(this).closest('.usr-posts').remove();
 
 
-    // var findThisBike = '[data-bikeid="' + thisBikeId+ '"]';
+    // var findThisBike = '[data-bikeId="' + thisBikeId + '"]';
     // // find bike in all bikes listing and remove
     // // still debugging this
     // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(findThisBike);

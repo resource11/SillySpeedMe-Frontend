@@ -12,11 +12,23 @@ var bike = {
   user_id: null
 };
 
+var bikes = {};
+
 var favorite_bike = {
   id: null,
   favorite: false,
   user_id: null,
   bike_id: null
+};
+
+var countBikeFavs = [];
+
+var favCountResetter = function(countBikeFavs){
+  for(var i=0; i < countBikeFavs.length; i++) {
+    if (countBikeFavs === 0) {
+      countBikeFavs[i] = "";
+    }
+  }
 };
 
 // locations to append bikes
@@ -28,8 +40,8 @@ var removeBikes = function(data, location1, location2) {
   location1.find.location2.remove();
 };
 
-var listBikeHTML = function (bike) {
-  allBikesList.prepend('<div data-bike-id=' + bike.id + ' class="bike-posts span_2_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
+var listBikeHTML = function(bike) {
+  allBikesList.prepend('<div data-bike-id=' + bike.id + ' class="bike-posts span_3_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
 };
 
 
@@ -43,7 +55,9 @@ var listUserBikeHTML = function(bike) {
 //  };
 
 var listFavBikeHTML = function(favBike) {
-  userFavoriteList.append('<div data-fav-bike-id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike</p><p>' + favBike.bike_id + '</p></div>');
+  if (favBike.favorite === 't') {
+    userFavoriteList.append('<div data-fav-bike-id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike</p><p>' + favBike.bike_id + '</p></div>');
+  }
  };
 
 // create object from form data
@@ -107,8 +121,8 @@ var loginCb = function (error, data) {
   $('.user-messages').text('Welcome, user #' + session.userId);
 
   // show in console for testing purposes
-  console.log(session.userId);
-  console.log(session.token);
+  // console.log(session.userId);
+  // console.log(session.token);
 
   // display current_user status
   data.user.current_user = true;
@@ -120,7 +134,7 @@ var loginCb = function (error, data) {
   ssme_api.listFavBikes(session.token, listFavBikesCb);
 
 
-  console.log(JSON.stringify(data, null, 4));
+  // console.log(JSON.stringify(data, null, 4));
 
 }; // end of login callback;
 
@@ -134,7 +148,7 @@ var logoutCb = function (error){
   }
   data.user.current_user = false;
   // changeLogout();
-  console.log(JSON.stringify(data, null, 4));
+  // console.log(JSON.stringify(data, null, 4));
   console.log("Logged out");
 };
 
@@ -146,11 +160,14 @@ var listAllBikesCb = function (error, data) {
     return;
   }
   // grab bikes from Rails
-  var bikes = data.bikes;
+  bikes = data.bikes;
 
   bikes.forEach(function(bike){
     listBikeHTML(bike);
   });
+
+    // list all favorite bikes
+  ssme_api.listAllFavBikes(listAllFavBikesCb);
 
 };
 
@@ -163,17 +180,19 @@ var listAllFavBikesCb = function (error, data) {
     return;
   }
 
-  // console.log test
-  console.log('favorite bike data is ' + data.favorite_bikes);
-
   var favBikes = data.favorite_bikes;
 
-  // favBikes.forEach(function(favBike){
-  //   listFavBikeHTML(favBike);
-  // });
+  favBikes.forEach(function(favBike){
+    // listFavBikeHTML(favBike);
 
-  // console.log for testing
-  console.log('bikes are ', favBikes);
+    // console.log('all fav bikes are: ' + JSON.stringify(favBike.bike_id) + ' with favorite: '+ JSON.stringify(favBike.favorite));
+
+  });
+
+  // bikes.forEach(function(bike){
+  //   console.log('all bikes are: ' + JSON.stringify(bike.id));
+
+  // });
 
 };
 
@@ -220,17 +239,49 @@ var listFavBikesCb = function (error, data) {
     return;
   }
 
-  // console.log test
-  console.log('favorite bike data is ' + data.favorite_bikes);
-
   var favBikes = data.favorite_bikes;
+
+  // var favMatch, bikeMatch, addHeart;
+
+  // var allBikesMatch = document.getElementsByClassName('bike-posts');
+  // // var allBikesMatch = document.querySelector('#all-bikes');
+  //   // var allBikesMatch = document.querySelectorAll('div.bike-posts > i');
+  // // var allHearts = allBikesMatch.getElementsByClassName('bike-posts');
+
+  // console.log(JSON.stringify(allBikesMatch));
 
   favBikes.forEach(function(favBike){
     listFavBikeHTML(favBike);
-  });
 
-  // console.log for testing
-  console.log('bikes are ', favBikes);
+
+    // if (favBike.favorite === 't') {
+    //   favMatch = favBike.bike_id;
+
+    //   // if (allBikesMatch.dataset.bikeId === favMatch) {
+    //   //   console.log(allHearts);
+    //   //   allHearts.classList.add('fa-heart');
+    //   // }
+
+    //   addHeart = $('bike-posts').find('data-bike-id').val();
+    //     console.log(JSON.stringify(addHeart));
+    //   if (addHeart === favMatch) {
+
+    //   addHeart.addClass('fa-heart');
+    //   addHeart.closest('i').removeClass('fa-heart-o');
+    //   console.log('found ' + favBike.bike_id);
+    //   }
+
+    // }
+
+
+    //   allBikesList.closest('data-bike-id').val() === favBike.bike_id && favBike.favorite === 't') {
+    // console.log (allBikesList.find('data-bike-id'));
+    // }
+
+      // ).closest('i').addClass('fa-heart');
+
+
+  });
 
 };
 
@@ -244,12 +295,16 @@ var favoriteBikeCb = function (error, data) {
   }
 
   // console.log test
- console.log('favorite bike data is ' + data);
+ console.log('favorite bike data is ' + JSON.stringify(data));
 
-  var favBike = data.favorite_bike;
+  var favBike = data;
   listFavBikeHTML(favBike);
+
+  $(".user-messages").html("<strong>Favorite added!</strong>");
 };
 // end of favoriteBike submit handler
+
+
 
 // updateFavBike callback
 var updateFavBikeCb = function (error, data) {
