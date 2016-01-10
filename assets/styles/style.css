@@ -721,6 +721,10 @@ label {
   display: none;
 }
 
+.select-cursor {
+  cursor: pointer;
+}
+
 
 
 
