@@ -13,6 +13,10 @@ var listBikeMenu = $('.list-bike-scheme');
 var closeMe = $('.close-me');
 var closeMeCreate = $('.close-me-create');
 var messagesContainer = $('.messages-container');
+var favorites = $('.favorites');
+var currUser = $('.current-user');
+
+$('.list-a-bike').hide();
 
 
 //$(document).ready(...
@@ -49,6 +53,14 @@ $(function() {
   $('.login-a2').on('click', function() {
     registerMenu.slideUp(300);
     loginMenu.delay(600).slideDown(300).removeClass('hidden');
+  });
+
+  $('.register-a3').on('click', function() {
+    registerMenu.fadeIn().removeClass('hidden');
+  });
+
+  $('.login-a3').on('click', function() {
+    loginMenu.fadeIn().removeClass('hidden');
   });
 
   $('.list-a-bike').on('click', function() {
@@ -94,9 +106,8 @@ $(function() {
 
   // logout event handler
   $('#logout').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
-
-    ssme_api.login(credentials, logoutCb);
+    // var credentials = wrap('credentials', form2object(this));
+    ssme_api.login(session.userId, session.token, logoutCb);
     e.preventDefault();
   });
 

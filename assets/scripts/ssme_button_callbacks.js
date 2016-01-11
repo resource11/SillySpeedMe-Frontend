@@ -102,6 +102,12 @@ var loginCb = function (error, data) {
   session.userId = data.user.id;
   session.token = data.user.token;
   messagesContainer.fadeIn().removeClass('hidden');
+  favorites.fadeIn().removeClass('hidden');
+  currUser.fadeIn().removeClass('hidden');
+  $('.list-a-bike').fadeIn().removeClass('hidden');
+  $('.logged-in').fadeOut();
+  $('.register-a').hide();
+  $('.login-a').hide();
   $('.user-messages').text('Welcome, user #' + session.userId);
 
   // display current_user status

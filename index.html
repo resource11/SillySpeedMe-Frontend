@@ -12,19 +12,19 @@
 </head>
 
 <body>
-  <header>
+  <header class="span_12_of_12">
 
     <div class="brand">
       <h1>SillySpeed Me</h1>
     </div>
 
-    <!-- <nav> -->
-      <ul class="top-nav span_6_of_12">
+    <nav>
+      <ul class="top-nav">
         <li id ="register-button" class="register-a">Register</li>
         <li id="login-button" class="login-a">Log In</li>
-        <li id="list-bike-button" class="list-a-bike">List a Bike</li>
+        <li id="list-bike-button" class="list-a-bike hidden">List a Bike</li>
       </ul>
-   <!--  </nav> -->
+    </nav>
 
 
   </header>
@@ -33,24 +33,62 @@
   <!-- begin wrapper -->
   <div class="wrapper">
 
-      <section id="banner" class="span_12_of_12">
+    <section id="banner" class="span_12_of_12">
+      <!-- user messages -->
+      <div class="messages-container col span_3_of_12 hidden">
+        <h5>Messages</h5>
+        <p class="user-messages flexbox-align-center span_9_of_12">messages here</p>
+      </div>
+      <!-- end user messages -->
+
+      <div class="hero-text col span_6_of_12">
         <h2>SillySpeed Me!</h2>
         <h4>one-geared fun.</h4>
-        <p>&#8212; <a class="register-a">Register</a> and <a class="login-a">Log in</a> to list a bike &#8212; </p>
-      </section>
+        <p class="logged-in span_8_of_12"><a class="register-a3">Register</a> and <a class="login-a3">Log in</a> to list a bike</p>
+      </div>
+
+      <div id="profile" class="curr-user-scheme col span_3_of_12">
+        <div class="favorites hidden">
+          <h4>Your Favorites</h4>
+
+          <div id="user-favorite-bikes">
+          <!-- dynamic content -->
+          </div>
+
+        </div>
+
+        <div class="current-user hidden">
+          <h4>Your bikes for sale</h4>
+
+          <div id="user-bikes">
+          <!-- dynamic content -->
+          </div>
+        </div>
+      </div><!-- end profile -->
+
+
+    </section>
+
+
+
+
+
 
       <section class="span_12_of_12 register-scheme hidden">
         <div class="span_4_of_12 reg-login">
           <p class="close-me"><i class="fa fa-times"></i></p>
           <h3>Sign up</h3>
           <form id="register">
+            <label for="email">email</label>
             <input name="email" type="text" placeholder="email">
+            <label for="password">password</label>
             <input name="password" type="password" placeholder="password">
+            <label for="password confirmation">password confirmation</label>
             <input name="password_confirmation" type="password" placeholder="password confirmation">
             <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
             <button type="" class="">Submit</button>
           </form>
-          <p>Already signed up? <a class="login-a2">Sign in</a>.</p>
+          <p class="reg-login-ask">Already signed up? <a class="login-a2">Sign in</a>.</p>
         </div>
       </section>
 
@@ -61,12 +99,14 @@
           <p class="close-me"><i class="fa fa-times"></i></p>
           <h3>Sign in</h3>
           <form id="login">
+            <label for="email">email</label>
             <input name="email" type="text" placeholder="email">
+            <label for="password">password</label>
             <input name="password" type="password" placeholder="password">
             <!-- <input name="login" type="submit" value="Login" class="top-login-button"> -->
             <button type="" class="">Submit</button>
           </form>
-          <p>Need an account? <a class="register-a2">Register</a>.</p>
+          <p class="reg-login-ask">Need an account? <a class="register-a2">Register</a>.</p>
         </div>
       </section>
 
@@ -78,7 +118,9 @@
           <p class="close-me"><i class="fa fa-times"></i></p>
           <h3>List a bike</h3>
           <form id="create-bike">
+            <label for="bike title">bike title</label>
             <input name="title" type="text" placeholder="title of your post">
+            <label for="bike description">bike description</label>
             <input name="description" type="text" placeholder="Posting description">
             <!-- <input type="submit"> -->
             <button type="" class="">Submit</button>
@@ -88,36 +130,7 @@
       </section>
       <!-- end list bike -->
 
-      <!-- user messages -->
-      <div class="messages-container span_2_of_12 hidden">
-        <h5>Messages</h5>
-        <p class="user-messages flexbox-align-center span_12_of_12">messages here</p>
-      </div>
-      <!-- end user messages -->
 
-
-
-      <section id="profile" class="curr-user-scheme span_3_of_12">
-
-        <div class="favorites">
-          <h4>Your Favorites</h4>
-
-          <div id="user-favorite-bikes">
-          <!-- dynamic content -->
-          </div>
-
-        </div>
-
-        <div class="current-user">
-          <h4>Your bikes for sale</h4>
-
-          <div id="user-bikes">
-          <!-- dynamic content -->
-          </div>
-        </div>
-
-
-      </section><!-- end profile -->
 
 
       <!-- all bikes -->
