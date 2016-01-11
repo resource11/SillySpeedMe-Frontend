@@ -18,13 +18,12 @@ var messagesContainer = $('.messages-container');
 //$(document).ready(...
 $(function() {
 
-  // menu transition click handlers
 
   $('#all-bikes').on('mouseenter', '.favorite-bike', function() {
     $(this).closest('i').addClass('select-cursor');
   });
 
-    $('#all-bikes').on('mouseleave', '.favorite-bike', function() {
+  $('#all-bikes').on('mouseleave', '.favorite-bike', function() {
     $(this).closest('i').removeClass('select-cursor');
   });
 
@@ -105,6 +104,7 @@ $(function() {
 
   // handlers requiring authentication
 
+
   // create new bike handler
   $('#create-bike').on('submit', function(e) {
     var data = wrap('bike', form2object(this));
@@ -117,13 +117,9 @@ $(function() {
 
 
   // favorite a bike handler
-  // $('#favorite_bike').on('submit', function(e) {
-    $('#all-bikes').on('click', '.favorite-bike', function() {
-    // var data = wrap('favorite_bike', form2object(this));
+  $('#all-bikes').on('click', '.favorite-bike', function() {
 
-    console.log('clicked');
     var favThisBike = $(this).closest('.bike-posts').data('bike-id');
-    console.log('favbikeid is: ' + favThisBike);
 
     var data = {
       favorite_bike: {
@@ -133,33 +129,13 @@ $(function() {
       }
     }
 
-
-    // test to see if the session.token is recognized
-    console.log(session.token);
-
-    console.log('user id is: ' + session.userId);
-
-    console.log('the bike id is: ' + data.favorite_bike.bike_id);
-
-    // test to see if bike was created from wrap function
-    console.log(data.favorite_bike);
-
     ssme_api.favoriteBike(data, session.token, favoriteBikeCb);
-    // e.preventDefault();
   });
 
 
-  // NEW updateFavBike a bike handler
-  // $('#update_favorite').on('submit', function(e) {
+  // updateFavBike a bike handler
   $('#user-favorite-bikes').on('click', '.remove-favorite-bike', function() {
-    // var data = wrap('favorite_bike', form2object(this));
-    console.log("clicked");
-
-    // find the bike_id attached to the div
     var favBikeId = $(this).closest('.usr-favs').data('fav-bike-id');
-    // test to see if the data was wrapped
-    // console.log(data.favorite_bike);
-    console.log('fav bike id to remove is: ' + favBikeId);;
 
     var data = {
       favorite_bike: {
@@ -168,14 +144,8 @@ $(function() {
       }
     };
 
-
-    // test to see if the session.token is recognized
-    console.log(session.token);
-    console.log('data sent is: ' + JSON.stringify(data));
-
     ssme_api.updateFavBike(favBikeId, data, session.token, updateFavBikeCb);
 
-    // update the bike list in the viewport
     $(this).closest('.usr-favs').remove();
   });
 
@@ -184,31 +154,11 @@ $(function() {
   // delete bike event handler
   $('#user-bikes').on('click', '.delete-bike', function() {
 
-    console.log("clicked");
-
-    // find the bike_id attached to the div
     var thisBikeId = $(this).closest('.usr-posts').data('bike-id');
 
-    // confirmation the bike_id was captured
-    console.log(thisBikeId);
-
-    // change bg color as a test
-    $(this).closest('.bike-posts').css({'background-color': 'purple', 'font-weight': 'bold'});
-
-    // do an ajax DELETE request
     ssme_api.deleteBike(thisBikeId, session.token, deleteBikeCb);
 
-    // update the bike list in the viewport
     $(this).closest('.usr-posts').remove();
-
-
-    // var findThisBike = '[data-bikeId="' + thisBikeId + '"]';
-    // // find bike in all bikes listing and remove
-    // // still debugging this
-    // var thisBikeInAllBikes = $('#all-bikes').find('.bike-posts').attr(findThisBike);
-    // console.log('this found bike id is: ' + thisBikeInAllBikes);
-    // thisBikeInAllBikes.remove();
-
   });
 
 
