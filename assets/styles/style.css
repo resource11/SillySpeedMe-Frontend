@@ -92,7 +92,7 @@ h6 {
 
 /* NAVIGATION & BRAND */
 
-nav {
+/*nav {
   position: relative;
   float: right;
 }
@@ -104,8 +104,18 @@ nav ul {
 nav ul li {
   display: inline-block;
 }
+*/
 
+nav {
+  position: relative;
+  width: 40%;
+  margin-right: 5%;
+  float: right;
+}
 
+nav > ul > li {
+  float: right;
+}
 
 .brand {
   width: 100%;
@@ -117,9 +127,9 @@ nav ul li {
 }
 
 .top-nav {
-  width: 400px;
+  /*width: 400px;*/
   margin-top: 7px;
-  float: right;
+  /*float: right;*/
 }
 
 .top-nav > li {
@@ -129,7 +139,7 @@ nav ul li {
   margin: 0 0 0 1%;
   padding: 3px 10px;
   font-size: .8em;
-  /*font-weight: 400;*/
+  font-weight: 400;
   text-align: center;
   text-transform: uppercase;
   line-height: 1.6em;
@@ -150,7 +160,7 @@ nav ul li {
   background-color: rgba(170,21,5,1);
 }
 
-.profile-nav:after {
+nav:after {
   content: " ";
   clear: both;
 }
@@ -168,25 +178,37 @@ nav ul li {
   height: 600px;
   background-size: cover;
   background-position: center;
+  overflow: auto;
 /*  background-repeat: no-repeat;*/
   /*padding-top: 50px;*/
+/*  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 8px #000000;*/
+}
+
+.hero-text {
+  position: absolute;
+  top: 0px;
+  left: 25%;
   text-align: center;
   color: #fff;
+  margin: 0 auto;
   text-shadow: 2px 2px 8px #000000;
 }
 
-#banner h2 {
+.hero-text h2 {
   position: relative;
   top: 180px;
+  font-size: 7.6vw;
 }
 
-#banner h4 {
+.hero-text h4 {
   position: relative;
   top: 190px;
-  font-size:  2.5em;
+  font-size:  3.5vw;
 }
 
-#banner p {
+.hero-text p {
   position: relative;
   top: 192px;
   padding: 10px;
@@ -196,16 +218,28 @@ nav ul li {
 
 
 
+
 /* REGISTER LOGIN BUTTONS */
 
-.register-a, .login-a {
+.register-a, .login-a, .list-a-bike {
+  font-weight: 400;
+}
+
+.register-a3, .login-a3 {
   font-weight: 700;
 }
 
 .list-a-bike {
   margin-right: 10%;
+  border: 1px solid rgba(87, 138, 7, 1);
 }
 
+.logged-in {
+  margin: 20px auto;
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid #fff;
+  border-radius: 25px;
+}
 
 /*.list-a-bike {
   background-color: rgba(87, 138, 7, 1);
@@ -248,11 +282,12 @@ nav ul li {
 }
 
 .user-messages {
-  /*margin-left: 0;*/
-  margin: auto;
+  margin-left: 0;
+  /*margin: auto;*/
   /*width: 200px;*/
   height: 80px;
   padding-left: 15%;
+  padding-right: 10px;
   color: #fff;
   background-color: rgba(87, 138, 7, .8);
 }
@@ -383,6 +418,7 @@ nav ul li {
 
 .current-user h4, .favorites h4 {
   margin-bottom: 10px;
+  padding-right: 20px;
 }
 
 
@@ -392,6 +428,7 @@ nav ul li {
 
 .favorites {
   overflow: auto;
+  min-height: 90px;
 }
 
 .favorites:after {
@@ -565,9 +602,9 @@ input[type="submit"]{
   color:white;
 }
 
-label {
+/*label {
   font-size: 1.3em;
-}
+}*/
 
 /*select {
   width: 100%;
@@ -721,6 +758,11 @@ label {
   display: none;
 }
 
+
+.invisible {
+  visibility: hidden;
+}
+
 .select-cursor {
   cursor: pointer;
 }
@@ -730,9 +772,9 @@ label {
 
 /* Z-INDEX STRUCTURE */
 
-#banner {
+/*#banner {
   z-index: 1;
-}
+}*/
 
 .messages-container {
   position: absolute;
@@ -741,13 +783,15 @@ label {
 
 
 .curr-user-scheme {
-  position: absolute;
+  position: relative;
   top: 40px;
   height: 560px;
   overflow-x: hidden;
   overflow-y: scroll;
-  right: 0;
-  z-index: 200;
+  -webkit-overflow-scrolling: touch;
+  /*right: 0;
+  z-index: 200;*/
+  float: right;
   color: #fff;
 }
 
@@ -826,4 +870,113 @@ header {
   display: flex;
 
   align-content: stretch;
+}
+
+
+/*  GO FULL WIDTH BELOW 691 PIXELS */
+@media only screen and (max-width: 690px) {
+
+  nav {
+    width: 60%;
+  }
+
+  .hero-text {
+    top: 30px;
+    left: 0%;
+    text-align: center;
+  }
+
+  .hero-text h2 {
+    position: relative;
+    top: 180px;
+    font-size: 12vw;
+  }
+
+  .hero-text h4 {
+    position: relative;
+    top: 190px;
+    font-size:  5vw;
+  }
+
+  .hero-text p {
+    position: relative;
+    top: 192px;
+    padding: 10px;
+    /*font-size: 1.5]2em;*/
+  }
+
+  .curr-user-scheme {
+    position: relative;
+    top: 300px;
+    height: 560px;
+    margin-left: 5%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /*right: 0;
+    z-index: 200;*/
+    float: none;
+    color: #fff;
+  }
+
+  .delete-bike {
+    position: absolute;
+    bottom: 10px;
+    right: 12%;
+  }
+
+  .logged-in {
+    max-width: 50%;
+    margin: 10px auto;
+  }
+
+
+  input {
+    margin: 8px 0 15px;
+    padding:10px 0 10px 10px;
+  }
+
+
+  #register, #login, #create-bike{
+    width: 80%;
+    padding-left: 10%;
+    /*background-color: #eee;*/
+  }
+
+  .register-scheme h3, .login-scheme h3, .bike-listings-scheme h3, .edit-scheme h3, .list-bike-scheme h3 {
+    padding-left: 10%;
+  }
+
+
+  .register-scheme button, .login-scheme button, .bike-listings-scheme button, .list-bike-scheme button {
+    margin: 30px 0 15px;
+    padding: 5px 10px 8px;
+  }
+
+  .reg-login-ask {
+    margin-left: 10%;
+  }
+
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 480px) {
+
+  .hero-text h2 {
+    position: relative;
+    top: 180px;
+    font-size: 15vw;
+  }
+
+  .hero-text h4 {
+    position: relative;
+    top: 190px;
+    font-size:  7vw;
+  }
+
+  .logged-in {
+    max-width: 70%;
+    margin: 10px auto;
+  }
+
 }
