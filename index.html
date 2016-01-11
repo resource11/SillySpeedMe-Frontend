@@ -134,9 +134,53 @@
 
   </div>
 <!-- end wrapper -->
+  <script id="all-bikes-index" type="text/x-handlebars-template">
+    {{#each bikes}}
+      <div data-bike-id={{id}} class="bike-posts span_3_of_12">
+        <h6>{{title}}</h6>
+        <p>{{description}}</p>
+        <p> bike id: {{id}}</p>
+        <p data-user-id={{user_id}}> user id: {{user_id}}</p
+        ><i class="fa fa-heart-o favorite-bike"></i>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="user-bikes-index" type="text/x-handlebars-template">
+    {{#each bikes}}
+      <div data-bike-id={{id}} class="usr-posts span_12_of_12">
+        <h6>{{title}}</h6>
+        <p>{{description}}</p>
+        <p> bike id: {{id}}</p>
+        <p data-user-id={{user_id}}> user id: {{user_id}}</p
+        ><i class="fa fa-trash delete-bike"></i>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="user-favorite-bikes-index" type="text/x-handlebars-template">
+    {{#each favorite_bikes}}
+      {{#ifvalue favorite value="t"}}
+        <div data-fav-bike-id={{id}} class="fav-bike-icon usr-favs">
+          <p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p>
+          <p>bike</p>
+          <p>{{bike_id}}</p>
+        </div>
+      {{/ifvalue}}
+    {{/each}}
+  </script>
+
+  <script id="favorite-a-bike" type="text/x-handlebars-template">
+    <div data-fav-bike-id={{id}} class="fav-bike-icon usr-favs">
+      <p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p>
+      <p>bike</p>
+      <p>{{bike_id}}</p>
+    </div>
+  </script>
 
 <!-- begin scripts -->
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="assets/scripts/handlebars.js"></script>
   <script src="assets/scripts/ssme_api.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/ssme_button_callbacks.js" type="text/javascript" defer charset="utf-8"></script>
   <script src="assets/scripts/ssme_app.js" type="text/javascript" defer charset="utf-8"></script>

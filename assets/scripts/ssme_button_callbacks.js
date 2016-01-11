@@ -36,29 +36,7 @@ var allBikesList = $('#all-bikes');
 var userBikesList = $('#user-bikes');
 var userFavoriteList = $('#user-favorite-bikes');
 
-var removeBikes = function(data, location1, location2) {
-  location1.find.location2.remove();
-};
 
-var listBikeHTML = function(bike) {
-  allBikesList.prepend('<div data-bike-id=' + bike.id + ' class="bike-posts span_3_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-heart-o favorite-bike"></i></div>');
-};
-
-
-
-var listUserBikeHTML = function(bike) {
-  userBikesList.prepend('<div data-bike-id=' + bike.id + ' class="usr-posts span_12_of_12"><h6>' + bike.title + '</h6><p>' + bike.description +'</p><p> bike id: '+ bike.id +'</p><p data-user-id=' + bike.user_id + '> user id: '+ bike.user_id +'</p><i class="fa fa-trash delete-bike"></i></div>');
- };
-
-// var listFavBikeHTML = function(favBike) {
-//   userFavoriteList.append('<div id=' + favBike.id + ' class="bike-posts usr-favs span_12_of_12"><div class="fav-bike-icon"><p class="close-me"><i class="fa fa-times"></i></p><p>bike:</p><p>' + favBike.bike_id + '</p></div><h6> Favorite bike id ' + favBike.id + '</h6><p> bike id: ' + favBike.bike_id  + '</p><p> user id: ' + favBike.user_id  + '</p><button class="remove-favorite-bike">remove Favorite</button></div>');
-//  };
-
-var listFavBikeHTML = function(favBike) {
-  if (favBike.favorite === 't') {
-    userFavoriteList.append('<div data-fav-bike-id=' + favBike.id + ' class="fav-bike-icon usr-favs"><p class="close-me-fav remove-favorite-bike"><i class="fa fa-times"></i></p><p>bike</p><p>' + favBike.bike_id + '</p></div>');
-  }
- };
 
 // create object from form data
 var form2object = function(form) {
@@ -73,12 +51,16 @@ var form2object = function(form) {
 };
 
 
+
+
 // wrap function
 var wrap = function wrap(root, formData) {
   var wrapper = {};
   wrapper[root] = formData;
   return wrapper;
 };
+
+
 
 
 // callback function
@@ -92,6 +74,8 @@ var callback = function callback(error, data) {
 };
 
 
+
+
 // registration callback
 var regCb = function (error, data) {
   if (error) {
@@ -99,10 +83,10 @@ var regCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Registration fail!</strong>");
     return;
   }
-  console.log(JSON.stringify(data, null, 4));
-    messagesContainer.fadeIn().removeClass('hidden');
-    $('.user-messages').text('Welcome,  new user #' + data.user.id);
+  messagesContainer.fadeIn().removeClass('hidden');
+  $('.user-messages').text('Welcome,  new user #' + data.user.id);
 };
+
 
 
 
@@ -120,10 +104,6 @@ var loginCb = function (error, data) {
   messagesContainer.fadeIn().removeClass('hidden');
   $('.user-messages').text('Welcome, user #' + session.userId);
 
-  // show in console for testing purposes
-  // console.log(session.userId);
-  // console.log(session.token);
-
   // display current_user status
   data.user.current_user = true;
 
@@ -133,10 +113,8 @@ var loginCb = function (error, data) {
   // list current user favorited bikes
   ssme_api.listFavBikes(session.token, listFavBikesCb);
 
-
-  // console.log(JSON.stringify(data, null, 4));
-
 }; // end of login callback;
+
 
 
 
@@ -152,6 +130,9 @@ var logoutCb = function (error){
   console.log("Logged out");
 };
 
+
+
+
 // listBikes callback
 var listAllBikesCb = function (error, data) {
   if (error) {
@@ -159,17 +140,19 @@ var listAllBikesCb = function (error, data) {
     $(".user-messages").html("<strong>Error! Bike listing fail!</strong>");
     return;
   }
-  // grab bikes from Rails
-  bikes = data.bikes;
 
-  bikes.forEach(function(bike){
-    listBikeHTML(bike);
-  });
+  var template = Handlebars.compile($("#all-bikes-index").html());
+
+  var newHTML = template({bikes: data.bikes});
+
+  $("#all-bikes").html(newHTML);
 
     // list all favorite bikes
   ssme_api.listAllFavBikes(listAllFavBikesCb);
 
 };
+
+
 
 
 // listAllFavBikes callback
@@ -188,13 +171,10 @@ var listAllFavBikesCb = function (error, data) {
     // console.log('all fav bikes are: ' + JSON.stringify(favBike.bike_id) + ' with favorite: '+ JSON.stringify(favBike.favorite));
 
   });
-
-  // bikes.forEach(function(bike){
-  //   console.log('all bikes are: ' + JSON.stringify(bike.id));
-
-  // });
-
 };
+
+
+
 
 // createBike callback
 var createBikeCb = function (error, data) {
@@ -204,15 +184,17 @@ var createBikeCb = function (error, data) {
     return;
   }
 
-  var bike = data.bike;
-  listBikeHTML(bike);
-  listUserBikeHTML(bike);
-  console.log("bike id is: " + data.bike.id );
-  console.log("data is: " + JSON.stringify(data));
+  ssme_api.listUserBikes(session.token, listUserBikesCb);
+  ssme_api.listAllBikes(listAllBikesCb);
+
+
   $('.user-messages').text('New bike ' + data.bike.id + ' created by user ' + data.bike.user_id);
 
 };
 // end of createBike submit handler
+
+
+
 
 // listUserBikes callback
 var listUserBikesCb = function (error, data) {
@@ -222,14 +204,16 @@ var listUserBikesCb = function (error, data) {
     return;
   }
 
-  // grab bikes from Rails
-  var bikes = data.bikes;
+  var template = Handlebars.compile($("#user-bikes-index").html());
 
-  bikes.forEach(function(bike){
-    listUserBikeHTML(bike);
-  });
+  var newHTML = template({bikes: data.bikes});
+
+  $("#user-bikes").html(newHTML);
 
 };
+
+
+
 
 // listFavBikes callback
 var listFavBikesCb = function (error, data) {
@@ -241,49 +225,24 @@ var listFavBikesCb = function (error, data) {
 
   var favBikes = data.favorite_bikes;
 
-  // var favMatch, bikeMatch, addHeart;
-
-  // var allBikesMatch = document.getElementsByClassName('bike-posts');
-  // // var allBikesMatch = document.querySelector('#all-bikes');
-  //   // var allBikesMatch = document.querySelectorAll('div.bike-posts > i');
-  // // var allHearts = allBikesMatch.getElementsByClassName('bike-posts');
-
-  // console.log(JSON.stringify(allBikesMatch));
-
-  favBikes.forEach(function(favBike){
-    listFavBikeHTML(favBike);
-
-
-    // if (favBike.favorite === 't') {
-    //   favMatch = favBike.bike_id;
-
-    //   // if (allBikesMatch.dataset.bikeId === favMatch) {
-    //   //   console.log(allHearts);
-    //   //   allHearts.classList.add('fa-heart');
-    //   // }
-
-    //   addHeart = $('bike-posts').find('data-bike-id').val();
-    //     console.log(JSON.stringify(addHeart));
-    //   if (addHeart === favMatch) {
-
-    //   addHeart.addClass('fa-heart');
-    //   addHeart.closest('i').removeClass('fa-heart-o');
-    //   console.log('found ' + favBike.bike_id);
-    //   }
-
-    // }
-
-
-    //   allBikesList.closest('data-bike-id').val() === favBike.bike_id && favBike.favorite === 't') {
-    // console.log (allBikesList.find('data-bike-id'));
-    // }
-
-      // ).closest('i').addClass('fa-heart');
-
-
+  // define your custom handlebars helper
+  Handlebars.registerHelper('ifvalue', function (conditionalVariable, options){
+    if (conditionalVariable === options.hash.value) {
+      return options.fn(this); // who the 'ifvalue' content
+    } else {
+      return options.inverse(this); // show the 'else'content, if it exists
+    }
   });
 
+  var template = Handlebars.compile($("#user-favorite-bikes-index").html());
+
+  var newHTML = template({favorite_bikes: data.favorite_bikes});
+
+  $("#user-favorite-bikes").html(newHTML);
+
 };
+
+
 
 
 // favoriteBike callback
@@ -294,15 +253,18 @@ var favoriteBikeCb = function (error, data) {
     return;
   }
 
-  // console.log test
- console.log('favorite bike data is ' + JSON.stringify(data));
-
   var favBike = data;
-  listFavBikeHTML(favBike);
+
+  var template = Handlebars.compile($("#favorite-a-bike").html());
+
+  var newHTML = template(data);
+
+  $("#user-favorite-bikes").append(newHTML);
 
   $(".user-messages").html("<strong>Favorite added!</strong>");
 };
 // end of favoriteBike submit handler
+
 
 
 
@@ -315,9 +277,11 @@ var updateFavBikeCb = function (error, data) {
   }
 
   $(".user-messages").html("<strong>Favorite removed!</strong>");
+  ssme_api.listAllBikes(listAllBikesCb);
 
 };
 // end of updateFavBike submit handler
+
 
 
 
@@ -330,10 +294,9 @@ var deleteBikeCb = function (error, data) {
   }
 
   // find div by id, delete that div in user bikes then in all bikes
+  ssme_api.listAllBikes(listAllBikesCb);
 
   $(".user-messages").html("<strong>Bike deletion success!</strong>");
-
-
 
 };
 
