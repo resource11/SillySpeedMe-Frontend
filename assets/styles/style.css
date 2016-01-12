@@ -178,7 +178,7 @@ nav:after {
   height: 600px;
   background-size: cover;
   background-position: center;
-  overflow: auto;
+/*  overflow: auto;*/
 /*  background-repeat: no-repeat;*/
   /*padding-top: 50px;*/
 /*  text-align: center;
