@@ -421,11 +421,11 @@ nav:after {
 
 
 .usr-favs {
-  background-color: #95CE00;
+  background-color: rgba(149, 206, 0, .7);
 }
 
 .usr-favs:hover {
-  background-color: #C1CE00;
+  background-color: rgba(193, 206, 0, .7);
 }
 
 
@@ -438,7 +438,7 @@ nav:after {
   margin: 5px 10px 0 0;
   padding: 5px;
   /*background-image: url('../images/ss_bike.svg');*/
-  background-color: #95CE00;
+  background-color: rgba(149, 206, 0, .7);
   display: inline-block;
   border-radius: 50% 0 50% 50%;
   float: left;
@@ -873,10 +873,9 @@ header {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    /*right: 0;
-    z-index: 200;*/
     float: none;
     color: #fff;
+    border-top: 10px solid rgba(255,255,255, 1);
   }
 
   .current-user, .favorites {
