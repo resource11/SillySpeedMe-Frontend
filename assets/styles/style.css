@@ -88,23 +88,20 @@ h6 {
 }
 
 
+/* A LINKS */
+
+a.register-a3, a.login-a3 {
+  color: #fff;
+  text-decoration: none;
+}
+
+a.register-a3:hover, a.login-a3:hover {
+  color: #d0f168;
+  text-decoration: none;
+}
 
 
 /* NAVIGATION & BRAND */
-
-/*nav {
-  position: relative;
-  float: right;
-}
-
-nav ul {
-  list-style-type: none;
-}
-
-nav ul li {
-  display: inline-block;
-}
-*/
 
 nav {
   position: relative;
@@ -178,12 +175,7 @@ nav:after {
   height: 600px;
   background-size: cover;
   background-position: center;
-/*  overflow: auto;*/
-/*  background-repeat: no-repeat;*/
-  /*padding-top: 50px;*/
-/*  text-align: center;
-  color: #fff;
-  text-shadow: 2px 2px 8px #000000;*/
+  overflow: auto;
 }
 
 .hero-text {
@@ -193,7 +185,7 @@ nav:after {
   text-align: center;
   color: #fff;
   margin: 0 auto;
-  text-shadow: 2px 2px 8px #000000;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero-text h2 {
@@ -240,19 +232,6 @@ nav:after {
   border: 1px solid #fff;
   border-radius: 25px;
 }
-
-/*.list-a-bike {
-  background-color: rgba(87, 138, 7, 1);
-  border-radius: 15px;
-}
-
-.list-a-bike:hover {
-  background-color: rgba(170,21,5,1);
-}
-
-.list-a-bike:active {
-  background-color: 3px solid rgba(170,21,5,.5);
-}*/
 
 
 
@@ -339,7 +318,8 @@ nav:after {
 }
 
 .bike-posts:active{
-  background: radial-gradient(#FFEF8C 0%, #FF6A00 100%);
+  border-top: 3px solid rgba(203,78,10,1);
+  background: rgba(138,53,7,1);
 }
 
 .bike-posts h6 {
@@ -506,6 +486,7 @@ nav:after {
 .usr-posts {
   position: relative;
   display: inline-block;
+  width: 100%;
   height: 80px;
   overflow-y: scroll;
   padding: 5px 7px;
@@ -526,6 +507,13 @@ nav:after {
   color: #fff;
 }
 
+
+.usr-posts h6 {
+  margin: 4px 0;
+  width: 80%;
+}
+
+
 .usr-posts p {
   font-size: .8em;
   line-height: 1.2;
@@ -537,9 +525,6 @@ nav:after {
   bottom: 10px;
   right: 40px;
 }
-
-
-
 
 
 
@@ -570,7 +555,6 @@ nav:after {
 button {
   border: 2px solid white;
   background: rgba(0, 0, 0, 0);
-/*  margin: 30px 0 15px;*/
   padding: 3px 10px;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
@@ -602,21 +586,6 @@ input[type="submit"]{
   color:white;
 }
 
-/*label {
-  font-size: 1.3em;
-}*/
-
-/*select {
-  width: 100%;
-  border:0;
-  margin: 10px 0 20px;
-  padding:25px;
-  border-radius: 0;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size:18px;
-  display: block;
-}*/
 
 
 
@@ -651,22 +620,15 @@ input[type="submit"]{
 #register, #login, #create-bike{
   width: 90%;
   overflow: auto;
-  /*background-color: #eee;*/
 }
 
 .reg-login, .list-new-bike {
   margin: 0 auto;
 }
 
-/*.reg-login  h6{
-  color: #fff;
-  padding: 10px 0 5px;
-}*/
-
 
 
 .register-scheme, .login-scheme, .list-bike-scheme {
-  /*max-height: 250vh;*/
   padding: 180px 0 0;
   height: 100%;
   background-color: rgba(0,0,0, .9);
@@ -675,8 +637,6 @@ input[type="submit"]{
 
 
 .bike-listings-scheme, .user-fav-scheme, .user-list-scheme {
-/*  max-height: 100vh;*/
-/*  padding: 120px 0;*/
   background-color: rgba(50,50,50, 1);
   color: #fff;
   overflow: hidden;
@@ -686,9 +646,7 @@ input[type="submit"]{
 .register-scheme h3, .login-scheme h3, .bike-listings-scheme h3, .edit-scheme h3, .list-bike-scheme h3 {
   margin: 0px auto 20px;
   padding: 0;
-  /*text-align: center;*/
   color: #fff;
-  /*border: 1px solid white;*/
 }
 
 
@@ -711,19 +669,6 @@ input[type="submit"]{
   transition: all 0.3s;
 
 }
-
-
-.bike-listings-scheme, .curr-user-scheme, .user-fav-scheme, .user-list-scheme {
-  /*padding: 20px 0;*/
-  /*top: 60;
-  right: 0;*/
-  /*width: 25%;*/
-/*  overflow: auto;*/
-}
-
-/*.sidebar {
-  position: relative;
-}*/
 
 
 
@@ -783,15 +728,15 @@ input[type="submit"]{
 
 
 .curr-user-scheme {
-  position: relative;
+  position: absolute;
   top: 40px;
   height: 560px;
-  overflow-x: hidden;
+  overflow-x: none;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  /*right: 0;
-  z-index: 200;*/
-  float: right;
+  right: 0;
+  z-index: 200;
+   /**/
   color: #fff;
 }
 
@@ -880,10 +825,22 @@ header {
     width: 60%;
   }
 
+  #banner {
+    position: relative;
+    top: 0px;
+    left: 0;
+    background-image: url('../images/steilacoom_02.jpg');
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    overflow: none;
+  }
+
   .hero-text {
     top: 30px;
     left: 0%;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   }
 
   .hero-text h2 {
@@ -907,9 +864,12 @@ header {
 
   .curr-user-scheme {
     position: relative;
-    top: 300px;
+    top: 0px;
     height: 560px;
-    margin-left: 5%;
+    margin: 0%;
+    background-image: url('../images/steilacoom.jpg');
+    background-size: cover;
+    background-position: center;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -919,10 +879,21 @@ header {
     color: #fff;
   }
 
+  .current-user, .favorites {
+    margin-left: 3%;
+  }
+
+  .current-user h4, .favorites h4 {
+    margin-bottom: 10px;
+    padding-right: 20px;
+  }
+
+
+
   .delete-bike {
     position: absolute;
     bottom: 10px;
-    right: 12%;
+    right: 7%;
   }
 
   .logged-in {
@@ -972,6 +943,12 @@ header {
     position: relative;
     top: 190px;
     font-size:  7vw;
+  }
+
+  .delete-bike {
+    position: absolute;
+    bottom: 10px;
+    right: 10%;
   }
 
   .logged-in {

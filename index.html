@@ -33,66 +33,70 @@
   <!-- begin wrapper -->
   <div class="wrapper">
 
+    <!-- user messages -->
+    <div class="messages-container col span_3_of_12 hidden">
+      <h5>Messages</h5>
+      <p class="user-messages flexbox-align-center span_9_of_12">messages here</p>
+    </div>
+    <!-- end user messages -->
+
     <section id="banner" class="span_12_of_12">
-      <!-- user messages -->
-      <div class="messages-container col span_3_of_12 hidden">
-        <h5>Messages</h5>
-        <p class="user-messages flexbox-align-center span_9_of_12">messages here</p>
-      </div>
-      <!-- end user messages -->
+
+      <div class="col span_3_of_12"></div>
 
       <div class="hero-text col span_6_of_12">
         <h2>SillySpeed Me!</h2>
         <h4>one-geared fun.</h4>
-        <p class="logged-in span_8_of_12"><a class="register-a3">Register</a> and <a class="login-a3">Log in</a> to list a bike</p>
+        <p class="logged-in span_8_of_12"><a href="#register-button" class="register-a3">Register</a> and <a href="#login-button" class="login-a3">Log in</a> to list a bike</p>
       </div>
 
-      <div id="profile" class="curr-user-scheme col span_3_of_12">
-        <div class="favorites hidden">
-          <h4>Your Favorites</h4>
-
-          <div id="user-favorite-bikes">
-          <!-- dynamic content -->
-          </div>
-
-        </div>
-
-        <div class="current-user hidden">
-          <h4>Your bikes for sale</h4>
-
-          <div id="user-bikes">
-          <!-- dynamic content -->
-          </div>
-        </div>
-      </div><!-- end profile -->
+      <div class="col span_3_of_12"></div>
 
 
     </section>
 
 
+    <!-- begin profile -->
+    <div id="profile" class="curr-user-scheme span_3_of_12 hidden">
+      <div class="favorites hidden">
+        <h4>Your Favorites</h4>
 
-
-
-
-      <section class="span_12_of_12 register-scheme hidden">
-        <div class="span_4_of_12 reg-login">
-          <p class="close-me"><i class="fa fa-times"></i></p>
-          <h3>Sign up</h3>
-          <form id="register">
-            <label for="email">email</label>
-            <input name="email" type="text" placeholder="email">
-            <label for="password">password</label>
-            <input name="password" type="password" placeholder="password">
-            <label for="password confirmation">password confirmation</label>
-            <input name="password_confirmation" type="password" placeholder="password confirmation">
-            <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
-            <button type="" class="">Submit</button>
-          </form>
-          <p class="reg-login-ask">Already signed up? <a class="login-a2">Sign in</a>.</p>
+        <div id="user-favorite-bikes">
+        <!-- dynamic content -->
         </div>
-      </section>
 
-      <!-- end register -->
+      </div>
+
+      <div class="current-user hidden">
+        <h4>Your bikes for sale</h4>
+
+        <div id="user-bikes">
+        <!-- dynamic content -->
+        </div>
+      </div>
+    </div>
+    <!-- end profile -->
+
+
+    <section class="span_12_of_12 register-scheme hidden">
+      <div class="span_4_of_12 reg-login">
+        <p class="close-me"><i class="fa fa-times"></i></p>
+        <h3>Sign up</h3>
+        <form id="register">
+          <label for="email">email</label>
+          <input name="email" type="text" placeholder="email">
+          <label for="password">password</label>
+          <input name="password" type="password" placeholder="password">
+          <label for="password confirmation">password confirmation</label>
+          <input name="password_confirmation" type="password" placeholder="password confirmation">
+          <!-- <input name="register" type="submit" value="Register" class="top-reg-button"> -->
+          <button type="" class="">Submit</button>
+        </form>
+        <p class="reg-login-ask">Already signed up? <a class="login-a2">Sign in</a>.</p>
+      </div>
+    </section>
+
+    <!-- end register -->
 
       <section class="span_12_of_12 login-scheme hidden">
         <div class="span_4_of_12 reg-login">
@@ -161,7 +165,7 @@
 
   <script id="user-bikes-index" type="text/x-handlebars-template">
     {{#each bikes}}
-      <div data-bike-id={{id}} class="usr-posts span_12_of_12">
+      <div data-bike-id={{id}} class="usr-posts">
         <h6>{{title}}</h6>
         <p>{{description}}</p>
         <p> bike id: {{id}}</p>

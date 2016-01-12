@@ -104,6 +104,7 @@ var loginCb = function (error, data) {
   messagesContainer.fadeIn().removeClass('hidden');
   favorites.fadeIn().removeClass('hidden');
   currUser.fadeIn().removeClass('hidden');
+  currUserScheme.fadeIn().removeClass('hidden');
   $('.list-a-bike').fadeIn().removeClass('hidden');
   $('.logged-in').fadeOut();
   $('.register-a').hide();

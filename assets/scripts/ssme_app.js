@@ -15,6 +15,7 @@ var closeMeCreate = $('.close-me-create');
 var messagesContainer = $('.messages-container');
 var favorites = $('.favorites');
 var currUser = $('.current-user');
+var currUserScheme = $('.curr-user-scheme');
 
 $('.list-a-bike').hide();
 
