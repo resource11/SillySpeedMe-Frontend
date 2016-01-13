@@ -51,7 +51,7 @@ The features of this app will address the following user stories.
 * The initial wireframe mockup of a potential site design is located [here.](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0)
 
 ##App approach
-* I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype
+* I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype, and added in some Handlebars for some dynamic data rendering.
 * After sketching a [wireframe](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) to solve the problem of creating, reading, updating, and deleting data.
 * I also created a Rails backend, and structure my [ERD models](https://www.dropbox.com/s/ipal8a1w4dnnqeg/ssme_ERD_model.png?dl=0) and associations, leveraging Ruby, SQL and ActiveRecord.
 * After completing many data validation tests on the back end, I integrated the back-end to the front-end for functionality tests.
