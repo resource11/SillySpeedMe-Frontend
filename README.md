@@ -37,7 +37,7 @@ SillySpeed Me! is an app designed to allow the user to list a bike for sale and 
 * Integrate photo upload
 * Integrate some jQuery and CSS animations
 
-##User stories
+## User stories
 * The users in this scenario are individuals seeing to list a singlespeed bike for sale and favorite other bikes listed for sale.
 The features of this app will address the following user stories.
 * As a user, I can register an account.
@@ -47,16 +47,16 @@ The features of this app will address the following user stories.
 * As a user, I can favorite/unfavorite a bike
 
 
-##Wireframe
+## Wireframe
 * The initial wireframe mockup of a potential site design is located [here.](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0)
 
-##App approach
+## App approach
 * I leveraged my knowledge of HTML, CSS, Javascript, jQuery and AJAX to build a decently functional app prototype, and added in some Handlebars for some dynamic data rendering.
 * After sketching a [wireframe](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) and reviewing my user stories (see above section), I mocked up the HTML file and added some basic CSS3 styling. Then I worked through the [user journey and app logic](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) to solve the problem of creating, reading, updating, and deleting data.
 * I also created a Rails backend, and structure my [ERD models](https://www.dropbox.com/s/ipal8a1w4dnnqeg/ssme_ERD_model.png?dl=0) and associations, leveraging Ruby, SQL and ActiveRecord.
 * After completing many data validation tests on the back end, I integrated the back-end to the front-end for functionality tests.
 
-##Challenges
+## Challenges
 * My first challenge was figuring out the [data models], and how the data would relate to each other in the most logical manner with a goal of keeping my controllers skinny.
 * My second challenge was creating a [user journey map](https://www.dropbox.com/s/lsjt6hj2m70r4mh/ssme_User_Journey.png?dl=0) and [wireframes](https://www.dropbox.com/s/xi5r1fu76du7bjr/ssme_wireframes.pdf?dl=0) that accurately achieved the goals of my user stories, while setting up a workflow process. I heavily leveraged Trello to keep track of items to do, in development and completed.
 * My third challenge was structuring my code in a way that could more easily integrate the ajax requests/response while paying attention to separation of concerns.
@@ -64,11 +64,8 @@ The features of this app will address the following user stories.
 * My fifth challenge was trying to use the process I sussed out with respect to the steps needed to request and receive specific information from the API and actually *integrate* that into my app.
 * My sixth challenge was gathering the data from the back end successfully and structuring my controllers and serializers to achieve this goal.
 
-##Upcoming features
+## Upcoming features
 * In future revs, I'd love to add an aggregation of individual bike favorites, bike photos to accompany each posting, and a map displaying the location of each bike for sale.
-
-##Final Thoughts
-* In general, I think this is a great second project for showing how we can leverage our knowledge to creat full-stack applications! Ready for more...
 
 [License](LICENSE)
 ------------------
